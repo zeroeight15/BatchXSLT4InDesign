@@ -1,0 +1,76 @@
+/* ===================================
+* THIS SOFTWARE IS PROVIDED 'AS IS'. READ LICENSE IN 'flipbook-src.js'
+Version: 40
+Version date: 20140803
+PURPOSE: This CSS controls the look and feel of the image lightbox within the slide book web site.
+=================================== */
+
+
+.showImage_lightbox {
+	position:absolute; top:50%;left:50%;
+	display:none;	/* will be enabled by showImage_lightbox_fadein() */
+	width:auto; height:auto;
+	padding:3px;
+	background-color:#ccc;
+	line-height:1.5em;
+	color:#fff;
+	z-index:3000;
+	overflow:visible;
+	cursor:move;
+	border:1px solid #888;
+	border-left-width:1px;	/* have to set this for Safari !! otherwise it is 0 */
+	border-right-width:1px;
+	border-bottom-width:1px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+}
+.showImage_lightbox_title {
+	height:30px;
+	background-color:transparent;
+	text-align:center;
+	/* white-space:nowrap; does not work for firefox */
+	overflow:visible;
+	cursor:move;
+}
+.showImage_lightbox_title_newwindow {
+	display:inline-block;
+	width:30px; height:30px;
+	position:absolute; top:0; left:0;
+	background-image:url("fullscreen.png");
+	background-repeat:no-repeat;
+	cursor:pointer;
+}
+.showImage_lightbox_title_spacer {	/* can be used as a centered title */
+	/*display:inline-block;*/
+	display:none;
+	width:10%; height:30px;
+	margin:0 auto 0 auto;
+}
+.showImage_lightbox_title_close {
+	display:inline-block;
+	width:30px; height:30px;
+	position:absolute; top:2px; right:3px;
+	background-image:url("image-lightbox-close.png");
+	background-repeat:no-repeat;
+	cursor:pointer;
+}
+.showImage_lightbox_content {
+	position:relative;	
+	width:auto; height:auto;
+	margin:0; padding:2px;
+	line-height:normal;
+	background-color:#888;
+	text-align:left;
+	color:black;
+	-webkit-overflow-scrolling:touch;
+	overflow:auto;
+	cursor:auto;
+}
+.showImage_lightbox_img {
+	position:relative;	
+	margin:0; padding:0;
+	border:0;
+	cursor: move;
+	cursor: zoom-in;
+}

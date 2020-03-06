@@ -1,0 +1,11 @@
+/* ===================================
+* THIS SOFTWARE IS PROVIDED 'AS IS'. READ LICENSE IN 'flipbook-src.js'
+Version: 8.0
+Version date: 20140114
+PURPOSE: This CSS controls the look and feel of the slide book web site.
+Some styles are 'helpers' to control the functionality. The Javascript will read the styles and set flags accordingly.
+
+Style for Microsoft Phone IE 10devices:
+ viewport width:400px
+=================================== */
+@-ms-viewport{width:400px; user-zoom:fixed; max-zoom: 1; min-zoom: 1; }
