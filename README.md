@@ -9,6 +9,7 @@ InDesign scripting can write such files. It also can export documents to various
 - images to JPEG
 - Pages to PDF
 - and more...
+
 After having exported a whole bunch of things from an document, InDesign can command BatchXSLT to create useful, readable XML from all these exported 'raw' files.
 
 This combination of BatchXSLT controlled by InDesign demands for the package name:
