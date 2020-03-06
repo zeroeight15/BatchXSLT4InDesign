@@ -2,7 +2,7 @@
 # Downloads
 ## Windows Package
 #### as a ZIP file
-Download the zip file and un-zip the ''BatchXSLT4InDesign.zip'.
+Download the zip file and un-zip the 'BatchXSLT4InDesign.zip' archive.
 Two folders are contained:
 1) copy the folder 'BatchXSLT4InDesign' to the system's 'Applications' folder
 2) copy the folder 'BatchXSLT4InDesign Scripts' into InDesign's 'Scripts/Scripts Panel' folder
