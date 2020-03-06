@@ -4,7 +4,7 @@
 #### a ZIP file:
 [hosted on our site aiedv.ch] (https://aiedv.ch/downloads/packages/2020/BatchXSLT4InDesign_40-00-46.zip)
 
-Download the zip file and un-zip the 'BatchXSLT4InDesign.zip' archive.
+Download above zip file and un-zip the 'BatchXSLT4InDesign.zip' archive.
 Two folders are contained:
 1) copy the folder 'BatchXSLT4InDesign' to the system's 'Applications' folder
 2) copy the folder 'BatchXSLT4InDesign Scripts' into InDesign's 'Scripts/Scripts Panel' folder
@@ -17,7 +17,7 @@ InDesign will start it automatically after a document export.
 #### a signed/notarized disk image:
 [hosted on our site aiedv.ch] (https://aiedv.ch/downloads/packages/2020/BatchXSLT4InDesign_40-00-46.dmg)
 
-Download the dmg file, activate it with a double click.\
+Download above dmg file, activate it with a double click.\
 Follow the instructions on the disk image: drag/drop the two folders 'BatchXSLT4InDesign' and 'BatchXSLT4InDesign Scripts'.\
 The Transformer can manually be started with the app 'BatchXSLT.app' contained in 'BatchXSLT4InDesign/BatchXSLT/'\
 InDesign will start it automatically after a document export.
