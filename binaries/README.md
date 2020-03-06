@@ -5,7 +5,7 @@
 Download the zip file and un-zip the ''BatchXSLT4InDesign.zip'.
 Two folders are contained:
 1) copy the folder 'BatchXSLT4InDesign' to the system's 'Applications' folder
-2) copy the folder 'BatchXSLT4InDesign Scripts' into InDesign's 'Scripts' folder
+2) copy the folder 'BatchXSLT4InDesign Scripts' into InDesign's 'Scripts/Scripts Panel' folder
 
 The Transformer is started with the script 'BatchXSLT.bat' contained in 'BatchXSLT4InDesign/BatchXSLT/'
 
