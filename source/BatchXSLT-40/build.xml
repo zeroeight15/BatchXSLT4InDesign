@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- You may freely edit this file. See commented blocks below for -->
+<!-- some examples of how to customize the build. -->
+<!-- (If you delete it and reopen the project it will be recreated.) -->
+<!-- By default, only the Clean and Build commands use this build script. -->
+<!-- Commands such as Run, Debug, and Test only use this build script if -->
+<!-- the Compile on Save feature is turned off for the project. -->
+<!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
+<!-- in the project's Project Properties dialog box.-->
+<project name="BatchXSLT_40.0" default="default" basedir=".">
+    <description>Builds, tests, and runs the project BatchXSLT_40.0.</description>
+
+
+    <echo message="+++++ Copy 'Manifest BatchXSLT' to manifest.mf"/>
+    <copy overwrite="true" file="Manifest BatchXSLT" tofile="manifest.mf"></copy>
+
+
+    <import file="nbproject/build-impl.xml"/>
+    <!--
+
+    There exist several targets which are by default empty and which can be 
+    used for execution of your tasks. Thes  e targets are usually executed 
+    before and after some main targets. They are: 
+
+      -pre-init:                 called before initialization of project properties
+      -post-init:                called after initialization of project properties
+      -pre-compile:              called before javac compilation
+      -post-compile:             called after javac compilation
+      -pre-compile-single:       called before javac compilation of single file
+      -post-compile-single:      called after javac compilation of single file
+      -pre-compile-test:         called before javac compilation of JUnit tests
+      -post-compile-test:        called after javac compilation of JUnit tests
+      -pre-compile-test-single:  called before javac compilation of single JUnit test
+      -post-compile-test-single: called after javac compilation of single JUunit test
+      -pre-jar:                  called before JAR building
+      -post-jar:                 called after JAR building
+      -post-clean:               called after cleaning build products
+
+    (Targets beginning with '-' are not intended to be called on their own.)
+
+    Example of inserting an obfuscator after compilation could look like this:
+
+        <target name="-post-compile">
+            <obfuscate>
+                <fileset dir="${build.classes.dir}"/>
+            </obfuscate>
+        </target>
+
+    For list of available properties check the imported 
+    nbproject/build-impl.xml file. 
+
+
+    Another way to customize the build is by overriding existing main targets.
+    The targets of interest are: 
+
+      -init-macrodef-javac:     defines macro for javac compilation
+      -init-macrodef-junit:     defines macro for junit execution
+      -init-macrodef-debug:     defines macro for class debugging
+      -init-macrodef-java:      defines macro for class execution
+      -do-jar-with-manifest:    JAR building (if you are using a manifest)
+      -do-jar-without-manifest: JAR building (if you are not using a manifest)
+      run:                      execution of project 
+      -javadoc-build:           Javadoc generation
+      test-report:              JUnit report generation
+
+    An example of overriding the target for project execution could look like this:
+
+        <target name="run" depends="BatchXSLT_40.0-impl.jar">
+            <exec dir="bin" executable="launcher.exe">
+                <arg file="${dist.jar}"/>
+            </exec>
+        </target>
+
+    Notice that the overridden target depends on the jar target and not only on 
+    the compile target as the regular run target does. Again, for a list of available 
+    properties which you can use, check the target you are overriding in the
+    nbproject/build-impl.xml file. 
+
+    -->
+
+
+<!--
+    *********************
+    Build BatchXSLT
+    *********************
+    	in folder nbproject/project.properties
+    	move MANIFEST stuff:
+
+    	manifest.file=manifest.mf
+   	
+    	TO THE END!!! for the custom manifest.mf file is used
+    	and
+    	BEFORE compiling with CLEAN:
+    	copy the file 
+    	Manifest BatchXSLT 40.0
+    	to
+    	manifest.mf
+-->
+<target name="build-native">
+    <taskdef name="bundle_osxBatchXSLT_app"
+         classname="com.oracle.appbundler.AppBundlerTask"
+         classpath="appbundler-1.0.jar" />
+
+    <property environment="env" />
+    <property name="targetjavavm" value="JavaVM13"/>
+    <property name="folder.javavmSRC" value="JavaVM.app"/>
+    <property name="appname" value="BatchXSLT"/>
+
+    <property name="folder.distOSX" value="distOSX_BatchXSLT_JavaVM13_bundled"/>
+    <mkdir dir="${folder.distOSX}" />
+
+    <bundle_osxBatchXSLT_app outputdirectory="${folder.distOSX}"
+        name="${appname}"
+        displayname="BatchXSLT"
+        identifier="com.epaperarchives.batchxslt.BatchXSLT"
+        mainclassname="com.epaperarchives.batchxslt.BatchXSLT"
+        icon="resources_macosx/BatchXSLT.icns"
+        shortversion="40.0">
+        <classpath file="dist/BatchXSLT.jar" />
+        <classpath file="lib/bsf.jar" />
+        <classpath file="lib/bsh-2.0b4.jar" />
+        <classpath file="lib/commons-codec-1.4.jar" />
+        <classpath file="lib/commons-io-2.0.jar" />
+        <classpath file="lib/commons-lang-2.6.jar" />
+        <classpath file="lib/commons-logging-1.1.1.jar" />
+        <classpath file="lib/commons-net-3.3.jar" />
+        <classpath file="lib/fontbox-1.7.1.jar" />
+        <classpath file="lib/httpclient-4.1.3.jar" />
+        <classpath file="lib/httpcore-4.1.4.jar" />
+        <classpath file="lib/httpmime-4.1.3.jar" />
+        <classpath file="lib/icu4j-4_8_1_1.jar" />
+        <classpath file="lib/image.jar" />
+        <classpath file="lib/jempbox-1.7.1.jar" />
+        <classpath file="lib/js.jar" />
+        <classpath file="lib/log4j.xml.jar" />
+        <classpath file="lib/mysql-connector-java-5.1.21-bin.jar" />
+        <classpath file="lib/pdfbox-1.7.1.jar" />
+        <classpath file="lib/serializer.jar" />
+        <classpath file="lib/soap.jar" />
+        <classpath file="lib/sxql.jar" />
+        <classpath file="lib/tika-app-1.9.jar" />
+        <classpath file="lib/truezip-6.jar" />
+        <classpath file="lib/xalan.jar" />
+        <classpath file="lib/xercesImpl.jar" />
+        <classpath file="lib/xml-apis.jar" />
+        <!-- Workaround since the icon parameter for bundleapp 
+             doesn't work. (It's not a bug in AppBundler but 
+             in the JavaAppLauncher, see Known Problems).
+        -->
+        <option value="-Xdock:icon=Contents/Resources/BatchXSLT.icns"/>
+
+        <!-- OSX specific options, optional -->
+        <option value="-Dapple.laf.useScreenMenuBar=true"/>
+        <option value="-Dcom.apple.macos.use-file-dialog-packages=true"/>
+        <option value="-Dcom.apple.macos.useScreenMenuBar=true"/>
+        <option value="-Dapple.awt.application.name=BatchXSLT"/>
+        <option value="-Dcom.apple.smallTabs=true"/>
+
+        <!-- JVM 7 seems to take a max around 4 Gigs by default -->
+        <!--option value="-Xmx1024M"/-->
+
+        <option value="-Djava.library.path=$APP_ROOT/Contents/${folder.javavmSRC}" />
+        <option value="-Duser.dir=$APP_ROOT/../" />
+
+        <!--
+        <runtime dir="${env.JAVA_HOME}" />
+        -->
+        <runtime dir="${folder.javavmSRC}/Contents/Home">
+        </runtime>
+    </bundle_osxBatchXSLT_app>
+
+	<!-- *********************************************************************
+	      BatchXSLT for OSX >10.9 with bundled Java VM
+	     ********************************************************************* -->
+    <echo message="*************************************************************"/>
+    <echo message="** Creating BatchXSLT for OSX >10.9 with bundled Java VM "/>
+    <echo message="*************************************************************"/>
+    <!-- copy our own Info.plist -->
+    <echo message="+++++ Copy 'Info.plist' to ${folder.distOSX}/${appname}.app/Contents/Info.plist"/>
+    <copy overwrite="true" file="resources_macosx/Info.plist" tofile="${folder.distOSX}/${appname}.app/Contents/Info.plist"></copy>
+
+    <!-- copy our own JavaAppLauncher -->
+    <echo message="+++++ Copy 'JavaAppLauncher' to ${folder.distOSX}/${appname}.app/Contents/MacOS"/>
+    <copy overwrite="true" file="resources_macosx/JavaAppLauncher" tofile="${folder.distOSX}/${appname}.app/Contents/MacOS/JavaAppLauncher"></copy>
+
+    <!-- copy Image resource -->
+    <echo message="+++++ Copy image resource 'image_${appname}.jar' to image.jar"/>
+    <copy overwrite="true" file="resources_macosx/image_${appname}.jar" tofile="${folder.distOSX}/${appname}.app/Contents/Java/image.jar"></copy>
+
+    <!-- copy JavaVM binaries -->
+    <echo message="+++++ Copy JavaVM.app"/>
+    <exec executable="cp">
+        <arg line="-R ${folder.javavmSRC} ${folder.distOSX}/${appname}.app/Contents/PlugIns/"/>
+    </exec>
+    <echo message="----- If any errors shown during copy, compare the folders JavaVM.app"/>
+
+
+
+
+</target>
+
+</project>
