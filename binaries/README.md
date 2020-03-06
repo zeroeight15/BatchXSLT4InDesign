@@ -1,7 +1,7 @@
 
 # Downloads
 ## Windows Package
-#### as a ZIP file
+#### a ZIP file:
 [hosted on our site aiedv.ch] (https://aiedv.ch/downloads/packages/2020/BatchXSLT4InDesign_40-00-46.zip)
 
 Download the zip file and un-zip the 'BatchXSLT4InDesign.zip' archive.
@@ -14,7 +14,7 @@ InDesign will start it automatically after a document export.
 
 
 ## Mac OS X Package
-#### as a singned/notarized disk image
+#### a signed/notarized disk image:
 [hosted on our site aiedv.ch] (https://aiedv.ch/downloads/packages/2020/BatchXSLT4InDesign_40-00-46.dmg)
 
 Download the dmg file, activate it with a double click.\
