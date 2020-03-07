@@ -10,10 +10,11 @@
 <project name="BatchXSLT_40.0" default="default" basedir=".">
     <description>Builds, tests, and runs the project BatchXSLT_40.0.</description>
 
-
+    <!-- as we compile with or without Tika meta data extractor, we do not overwrite the manifest .mf file
+         make sure 'manifest.mf' is correct
     <echo message="+++++ Copy 'Manifest BatchXSLT' to manifest.mf"/>
     <copy overwrite="true" file="Manifest BatchXSLT" tofile="manifest.mf"></copy>
-
+    -->
 
     <import file="nbproject/build-impl.xml"/>
     <!--
@@ -102,11 +103,11 @@
          classpath="appbundler-1.0.jar" />
 
     <property environment="env" />
-    <property name="targetjavavm" value="JavaVM13"/>
+    <property name="targetjavavm" value="JavaVM"/>
     <property name="folder.javavmSRC" value="JavaVM.app"/>
     <property name="appname" value="BatchXSLT"/>
 
-    <property name="folder.distOSX" value="distOSX_BatchXSLT_JavaVM13_bundled"/>
+    <property name="folder.distOSX" value="distOSX_BatchXSLT_JavaVM_bundled"/>
     <mkdir dir="${folder.distOSX}" />
 
     <bundle_osxBatchXSLT_app outputdirectory="${folder.distOSX}"
@@ -138,7 +139,7 @@
         <classpath file="lib/serializer.jar" />
         <classpath file="lib/soap.jar" />
         <classpath file="lib/sxql.jar" />
-        <classpath file="lib/tika-app-1.9.jar" />
+        <!-- classpath file="lib/tika-app-1.9.jar" / -->
         <classpath file="lib/truezip-6.jar" />
         <classpath file="lib/xalan.jar" />
         <classpath file="lib/xercesImpl.jar" />

@@ -1,0 +1,11 @@
+Main-Class: com.epaperarchives.batchxslt.BatchXSLT
+Class-Path: BatchXSLT.jar image.jar xml-apis.jar xercesImpl.jar xalan.jar serializer.jar bsf.jar js.jar soap.jar icu4j-4_8_1_1.jar sxql.jar mysql-connector-java-5.1.21-bin.jar commons-codec-1.4.jar commons-logging-1.1.1.jar commons-io-2.0.jar commons-lang-2.6.jar commons-net-3.3.jar pdfbox-1.7.1.jar fontbox-1.7.1.jar jempbox-1.7.1.jar truezip-6.jar httpcore-4.1.4.jar httpclient-4.1.3.jar httpmime-4.1.3.jar bsh-2.0b4.jar log4j.xml.jar
+Specification-Title: BatchXSLT Transformer
+Specification-Version: 40.0
+Implementation-Title: BatchXSLT
+Implementation-Version: 40.0
+
+Name: BatchXSLT
+Specification-Vendor: aiedv.ch
+Implementation-Vendor: aiedv.ch
+Icon-Filename: BatchXSLTlogo.png

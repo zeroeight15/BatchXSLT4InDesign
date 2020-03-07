@@ -102,7 +102,7 @@
          classpath="appbundler-1.0.jar" />
 
     <property environment="env" />
-    <property name="targetjavavm" value="JavaVM13"/>
+    <property name="targetjavavm" value="JavaVM"/>
     <property name="folder.javavmSRC" value="JavaVM.app"/>
     <property name="appname" value="BatchXSLT"/>
 
