@@ -6,4 +6,5 @@ Copy a compiled 'BatchXSLT.app' into the folder 'BatchXSLT4InDesign-rawApp/Batch
 The dummy folder named 'Replace with compiled BatchXSLT.app' can be deleted.
 
 Now rename the folder 'BatchXSLT4InDesign-rawApp' to 'BatchXSLT4InDesign' and copy it into the 'Applications' folder.
+
 The transformer is ready.
