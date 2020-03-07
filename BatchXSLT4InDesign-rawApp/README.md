@@ -5,6 +5,7 @@ Download and un-zip it.
 Copy a compiled 'BatchXSLT.app' into the folder 'BatchXSLT4InDesign-rawApp/BatchXSLT/' (right beside the contained autostart.jt).\
 The dummy folder named 'Replace with compiled BatchXSLT.app' can be deleted.
 
-Now rename the folder 'BatchXSLT4InDesign-rawApp' to 'BatchXSLT4InDesign' and copy it into the 'Applications' folder.
+Now rename the folder 'BatchXSLT4InDesign-rawApp' to 'BatchXSLT4InDesign' and copy it into the 'Applications' folder.\
+Same procedure for Windows or Mac OS X.
 
 The transformer is ready.
