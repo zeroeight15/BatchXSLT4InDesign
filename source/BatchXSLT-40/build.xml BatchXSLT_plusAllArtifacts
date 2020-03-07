@@ -7,13 +7,15 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
-<project name="BatchXSLT_40.0" default="default" basedir=".">
+<project name="BatchXSLT_40.0" default="default" basedir="."
+     xmlns:if="ant:if" xmlns:unless="ant:unless">
     <description>Builds, tests, and runs the project BatchXSLT_40.0.</description>
 
-
+    <!-- as we compile with or without Tika meta data extractor, we do not overwrite the manifest .mf file
+         make sure 'manifest.mf' is correct
     <echo message="+++++ Copy 'Manifest BatchXSLT' to manifest.mf"/>
     <copy overwrite="true" file="Manifest BatchXSLT" tofile="manifest.mf"></copy>
-
+    -->
 
     <import file="nbproject/build-impl.xml"/>
     <!--
@@ -106,7 +108,7 @@
     <property name="folder.javavmSRC" value="JavaVM.app"/>
     <property name="appname" value="BatchXSLT"/>
 
-    <property name="folder.distOSX" value="distOSX_BatchXSLT_JavaVM13_bundled"/>
+    <property name="folder.distOSX" value="distOSX_BatchXSLT_JavaVM_bundled"/>
     <mkdir dir="${folder.distOSX}" />
 
     <bundle_osxBatchXSLT_app outputdirectory="${folder.distOSX}"
@@ -138,7 +140,7 @@
         <classpath file="lib/serializer.jar" />
         <classpath file="lib/soap.jar" />
         <classpath file="lib/sxql.jar" />
-        <classpath file="lib/tika-app-1.9.jar" />
+        <!-- classpath file="lib/tika-app-1.9.jar" / -->
         <classpath file="lib/truezip-6.jar" />
         <classpath file="lib/xalan.jar" />
         <classpath file="lib/xercesImpl.jar" />
@@ -159,14 +161,13 @@
         <!-- JVM 7 seems to take a max around 4 Gigs by default -->
         <!--option value="-Xmx1024M"/-->
 
-        <option value="-Djava.library.path=$APP_ROOT/Contents/${folder.javavmSRC}" />
+        <!--option value="-Djava.library.path=$APP_ROOT/Contents/${folder.javavmSRC}" /-->
         <option value="-Duser.dir=$APP_ROOT/../" />
 
         <!--
         <runtime dir="${env.JAVA_HOME}" />
         -->
-        <runtime dir="${folder.javavmSRC}/Contents/Home">
-        </runtime>
+        <!--runtime dir="${folder.javavmSRC}/Contents/Home"></runtime-->
     </bundle_osxBatchXSLT_app>
 
 	<!-- *********************************************************************
@@ -187,13 +188,20 @@
     <echo message="+++++ Copy image resource 'image_${appname}.jar' to image.jar"/>
     <copy overwrite="true" file="resources_macosx/image_${appname}.jar" tofile="${folder.distOSX}/${appname}.app/Contents/Java/image.jar"></copy>
 
-    <!-- copy JavaVM binaries -->
-    <echo message="+++++ Copy JavaVM.app"/>
-    <exec executable="cp">
-        <arg line="-R ${folder.javavmSRC} ${folder.distOSX}/${appname}.app/Contents/PlugIns/"/>
-    </exec>
-    <echo message="----- If any errors shown during copy, compare the folders JavaVM.app"/>
-
+    <!-- copy JavaVM if exists -->
+    <available file="${folder.javavmSRC}" property="javaVMexists"/>
+    <!-- exists then -->
+        <echo if:set="javaVMexists" message="+++++ Copy JavaVM.app"/>
+        <exec if:set="javaVMexists" executable="cp">
+          <arg line="-R ${folder.javavmSRC} ${folder.distOSX}/${appname}.app/Contents/PlugIns/"/>
+        </exec>
+    <!-- NOT exists else -->
+        <echo unless:set="javaVMexists" message="##############################################"/>
+        <echo unless:set="javaVMexists" message="No Java virtual machine (JavaVM.app) found!"/>
+        <echo unless:set="javaVMexists" message="Install Java on the system or "/>
+        <echo unless:set="javaVMexists" message="copy a JavaVM.app beside the 'build.xml' file to include in the app package."/>
+        <echo unless:set="javaVMexists" message="##############################################"/>
+ 
 
 
 
