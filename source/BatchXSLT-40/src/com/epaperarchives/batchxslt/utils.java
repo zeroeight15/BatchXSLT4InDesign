@@ -39,13 +39,25 @@ import org.apache.pdfbox.pdmodel.encryption.StandardDecryptionMaterial;
 import org.apache.pdfbox.util.PDFMergerUtility;
 import org.apache.pdfbox.util.PDFTextStripper;
 import org.apache.soap.encoding.soapenc.Base64;
-import org.apache.tika.cli.TikaCLI;
 import org.apache.xerces.parsers.DOMParser;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
-
+/**
+ * if you need Tika to extract meta data from files, then 
+ * a: uncomment below line: import org.apache.tika.cli.TikaCLI;
+ * b: search for the line: if (metaData == "") return 0;  //  if tika is not needed we always return nothing
+ *    and comment the line As it will always return nothing
+ * c: search for the line: TikaCLI.main(args);
+ *    (this is the tika call) and uncomment it
+ * d: add the library 'tika-app-1.9.jar' (downloadable from apache tika)
+ *    - to the lib folder
+ *    - to the project's compile time libraries properties window
+ * e: make sure the manifest.mf file contains 'tika-app-1.9.jar' in the Class-Path: line
+ * f: recompile
+ */
+//import org.apache.tika.cli.TikaCLI;
 
 /********************************
  * various tools
@@ -2153,6 +2165,9 @@ props.put("mail.smtp.host", "localhost");
 		metaExtractError = "";
 		metaExtractData = "";
 		String metaData = "";
+		// comment the following line if Tika meta data extract is needed
+		if (metaData.equals("") == true) return 0;  //  if tika is not needed we always return nothing
+
 		if ((args == null) || args.length < 1) {
 			metaExtractError = "No path to input file given.";
 			return -1;
@@ -2168,7 +2183,8 @@ props.put("mail.smtp.host", "localhost");
 		// Tell Java to use your special stream
 		System.setOut(ps);
 		try {
-			TikaCLI.main(args);
+		  // uncomment if you need Tika
+			//TikaCLI.main(args);
 		} catch (Exception ex) {
 			metaExtractError = ex.getMessage();
 			System.out.flush();
