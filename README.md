@@ -25,6 +25,6 @@ BatchXSLT4InDesign is not just a XML transformer, but an entire application bund
 
 To download 'ready to run' binaries for Windows and Mac OS X enter the folder 'binaries'.
 
-Or, as a programmer, click the button [ Clone or Download ]
+Or, as a programmer, click the button [ Clone or download ]
 
 More is comming soon - working...
