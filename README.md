@@ -16,6 +16,12 @@ In fact, BatchXSLT does nothing more than an XSL Transformation and image conver
 
 This combination of BatchXSLT controlled by InDesign demands for the package name:
 #### BatchXSLT4InDesign
+BatchXSLT4InDesign is not just a XML transformer, but an entire application including
+- the transformer engine BatchXSLST.app
+- needed Transform Style Sheets (XSL) to transform InDesign IDML to readable XML
+- the InDesign exporter scripts
+- the XSL style sheets to transform the XML to an HTML flip page eBook
+- the Javascripts and CSS to display this flip book in a Browser
 
 To download 'ready to run' binaries for Windows and Mac OS X enter the folder 'binaries'.
 
