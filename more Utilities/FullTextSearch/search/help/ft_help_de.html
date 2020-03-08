@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<TITLE>MySQL Volltextsuche Hilfe</TITLE>
+<link rel="StyleSheet" href="styles.css" type="text/css" media="all">
+</head>
+<BODY class="txt" bgcolor="#FFFFFF" style="margin-top:0px; margin-bottom:0px">
+<script language="JavaScript" type="text/javascript"><!--
+window.resizeTo(550,600);
+//--></script>
+<div class="txt">
+<table class="txt1" width="100%" border="0">
+<tr class="txt1">
+	<td valign="top" class="chapttitle" style="white-space: nowrap">
+		MySQL Voll-Text Suchhilfe
+	</td>
+	<td class="txt1" valign="top" align="right">
+		<a href="http://www.epaperarchives.com" target="_blank" title="">www.epaperarchives.com</a><br>
+		<a href="http://www.aiedv.ch" target="_blank" title="">www.aiedv.ch</a>
+	</td>
+</tr>
+</table>
+
+<hr size="2">
+Mit der Voll-Text Suche kann nach Artikeln gesucht werden, die die im Feld 
+<span style="background-color: #DDDDDD; white-space: nowrap">&nbsp;Volltext Suche&nbsp;</span> 
+angegebenen Begriffe enthalten.<br>
+<!--
+Durch aktivieren der Checkbox 
+<span style="background-color: #DDDDDD; white-space: nowrap">&nbsp;Alle Objekte&nbsp;</span> 
+werden alle in der Datenbank vorhandenen Objekte nach dem angegebenen Begriff durchsucht, anderenfalls 
+wird nur im gerade aktiven Objekt gesucht.<br>
+Je nach Funktionsumfang ist eine zus&auml;tzliche Option vorhanden:<br>
+Durch aktivieren der Funktion 
+<span style="background-color: #DDDDDD; white-space: nowrap">&nbsp;Bild Recherche&nbsp;</span> 
+k&ouml;nnen so Bilder gefunden werden, die in einem bestimmten Zusammenhang zu 
+einem Artikel plaziert wurden. Es werden dann nur Artikel angezeigt, die auch ein Bild enthalten.<br>-->
+<br>
+Es kann gleichzeitig nach mehreren Worten gesucht werden.<br>
+Die einzelnen Worte werden mit Wortabstand getrennt, wie z.B: apfel Petersilie Erde<br>
+<br>
+
+<div class="minititle">
+Die Voll-Text Suchfunktion unterst&uuml;tzt folgende Operatoren:
+</div>
+
+<table class="txt1" width="100%" border="0">
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		+</td>
+	<td class="txt1" valign="top">
+		Ein f&uuml;hrendes Plus Zeichen bedeutet dass das Wort <b>vorhanden sein muss</b>.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		-</td>
+	<td class="txt1" valign="top">
+		Ein f&uuml;hrendes Minus Zeichen bedeutet dass das Wort <b>nicht vorhanden sein darf</b>.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		(kein<br> Operator)</td>
+	<td class="txt1" valign="top">
+		Wenn kein Operator angegeben ist (weder <span class="microtitle">+</span> noch 
+		<span class="microtitle">-</span>) dann ist dieses Wort optional,
+		jedoch <i>falls</i> vorhanden, dann ist die Bewertung h&ouml;her.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		&#62; &#60;</td>
+	<td class="txt1" valign="top">
+		Diese zwei Operatoren dienen dazu, die Gewichtung eines Wortes zu ver&auml;ndern. 
+		Der <span class="microtitle">&#62;</span> Operator erh&ouml;ht die Gewichtung und 
+		<span class="microtitle">&#60;</span> senkt sie.
+		Siehe Beispiel unten.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		( )</td>
+	<td class="txt1" valign="top">
+		Klammern dienen zur Bildung von Wort-Untergruppen.
+		Wort-Untergruppen k&ouml;nnen verschachtelt werden.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		~</td>
+	<td class="txt1" valign="top">
+		Ein f&uuml;hrendes Tilde ist der Negations-Operator. Er dient dazu, einem 
+		Wort eine negative Wertung zu geben. So werden 'Ger&auml;usch-Worte' markiert. 
+		Ein Text der solche Worte enth&auml;lt wird als weniger wichtig bewertet, wird 
+		aber nicht ausgeschlossen wie bei Verwendung des <span class="microtitle">-</span> Operators.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		*</td>
+	<td class="txt1" valign="top">
+		Ein Stern ist ein Platzhalter f&uuml;r irgend welche Buchstaben. Er <b>muss</b>
+		an eine Buchstabenfolge <b>angeh&auml;ngt</b> werden.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		"</td>
+	<td class="txt1" valign="top">
+		Ein Beriff, eingeschlossen zwischen doppelten Anf&uuml;hrungszeichen 
+		(<span class="microtitle">"</span>) muss Zeichen f&uuml;r Zeichen &uuml;bereinstimmen.
+	</td>
+</tr>
+</table><br>
+
+
+
+
+<br>
+<div class="minititle">
+Einige Beispiele f&uuml;r Suchbegriffe:
+</div>
+<table class="txt1" width="100%" border="0">
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		Apfel banane</td>
+	<td class="txt1" valign="top">
+		Findet Texte die mindestens eines der Worte enthalten.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		+apfel +saft</td>
+	<td class="txt1" valign="top">
+		Findet Texte die beide Worte enthalten.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		+apfel baum</td>
+	<td class="txt1" valign="top">
+		Findet Texte die das Worte 'apfel' enthalten, bewertet jedoch Texte als wichtiger, 
+		wenn sie auch 'Baum' enthalten.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		+apfel -baum</td>
+	<td class="txt1" valign="top">
+		Findet Texte die das Worte 'apfel' enthalten jedoch nicht 'baum'. 
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		+apfel +(&#62;essen &#60;stehlen)</td>
+	<td class="txt1" valign="top">
+		Findet Texte die die Worte 'Apfel' und 'essen' oder 'Apfel' und 'stehlen' enthalten, 
+		bewertet aber 'Apfel essen' h&ouml;her als 'Apfel stehlen'.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		apfel*</td>
+	<td class="txt1" valign="top">
+		Findet Texte die die Worte wie 'Apfel', 'Apfelsaft' oder 'Apfelmus' enthalten.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		"Einige Worte"</td>
+	<td class="txt1" valign="top">
+		Findet Texte, die <b>genau</b> den Begriff "Einige Worte" enthalten.
+		Also: 'Einige Worte sprechen' jedoch <b>nicht</b> 'Einige sch&ouml;ne Worte' und auch nicht 
+		'einige Worte'.
+	</td>
+</tr>
+</table>
+
+</div>
+</BODY>
+</html>

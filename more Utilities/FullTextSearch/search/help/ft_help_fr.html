@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<TITLE>MySQL aide recherche</TITLE>
+<link rel="StyleSheet" href="styles.css" type="text/css" media="all">
+</head>
+<BODY class="txt" bgcolor="#FFFFFF" style="margin-top:0px; margin-bottom:0px">
+<script language="JavaScript" type="text/javascript"><!--
+window.resizeTo(550,600);
+//--></script>
+<div class="txt">
+<table class="txt1" width="100%" border="0">
+<tr class="txt1">
+	<td valign="top" class="chapttitle" style="white-space: nowrap">
+		Aide sur les recherches MySQL
+	</td>
+	<td class="txt1" valign="top" align="right">
+		<a href="http://www.epaperarchives.com" target="_blank" title="">www.epaperarchives.com</a><br>
+		<a href="http://www.aiedv.ch" target="_blank" title="">www.aiedv.ch</a>
+	</td>
+</tr>
+</table>
+
+<hr size="2">
+&Agrave; l'aide de la recherche en texte int&eacute;gral vous pouvez trouver des articles 
+contenant les expressions dans la table
+<span style="background-color: #DDDDDD; white-space: nowrap">&nbsp;Recherche en texte int&eacute;gral&nbsp;</span>.<br>
+<!--
+Sur quelques syst&egrave;mes une autre option est contenue:<br>
+Des images qui sont mis en relation avec un article peuvent &ecirc;tre trouv&eacute;s en 
+choisissant l'option 
+<span style="background-color: #DDDDDD; white-space: nowrap">&nbsp;Recherche images&nbsp;</span>. 
+Les r&eacute;sultats affich&eacute;s ne contiennent que les articles avec un image.<br>-->
+<br>
+Vous pouvez formuler votre requ&ecirc;te avec plusieurs mots cl&eacute;s
+en les s&eacute;parant, par exemple: pomme persil monde.<br>
+<br>
+
+<div class="minititle">
+Pour formuler vos recherches vous pouvez utiliser les op&eacute;rateurs suivants:
+</div>
+
+<table class="txt1" width="100%" border="0">
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		+</td>
+	<td class="txt1" valign="top">
+		Le signe '+' devant chacun des mot cl&eacute; signifie que vous d&eacute;sirez
+		trouver des documents <b>contenant chacun des termes mentionn&eacute;s</b>.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		-</td>
+	<td class="txt1" valign="top">
+		Le signe '-' devant le mot cl&eacute; signifie que vous d&eacute;sirez
+		<b>exclure ce terme</b>.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		(pas d'<br> op&eacute;rateur)</td>
+	<td class="txt1" valign="top">
+		(ni <span class="microtitle">+</span> ni
+		<span class="microtitle">-</span>) signifie que ce mot est optionnel. Mais s'il
+	<i>&eacute;tait</i> pr&eacute;sent il aurait class&eacute; sup&eacute;rieur.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		&#62; &#60;</td>
+	<td class="txt1" valign="top">
+		Ces deux op&eacute;rateurs servent &agrave; changer le taux d'un mot. L'op&eacute;rateur
+		<span class="microtitle">&#62;</span> augmente le taux et l'op&eacute;rateur
+		<span class="microtitle">&#60;</span> le diminue. Voir l'exemple ci-apr&egrave;s.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		( )</td>
+	<td class="txt1" valign="top">
+		Utilisez des parenth&egrave;ses pour composer les mots en sous-groupes. Les sous-groupes
+		peuvent &ecirc;tre imbriqu&eacute;es.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		~</td>
+	<td class="txt1" valign="top">
+		Le signe '~' devant le mot signifie 'pr&egrave;s' et est un op&eacute;rateur de
+		n&eacute;gation. Les pages contenant ces mots sont class&eacute;es inf&eacute;rieures
+		mais ne sont pas excluses comme en utilisant l'op&eacute;rateur <span class="microtitle">-</span>.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		*</td>
+	<td class="txt1" valign="top">
+		L'&eacute;toile est un caract&egrave;re Joker. Elle doit <b>imp&eacute;rativement</b>
+		suivre la ch&ecirc;ne des caract&egrave;res.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		"</td>
+	<td class="txt1" valign="top">
+	Mettre une expression ou une groupe de mots entre guillemets
+		(<span class="microtitle">"</span>) permet de ne trouver que des documents contenant
+		<b>l'expression exacte</b>.
+	</td>
+</tr>
+</table><br>
+
+
+
+
+<br>
+<div class="minititle">
+Exemples de quelques cha&icirc;nes de recherche:
+</div>
+<table class="txt1" width="100%" border="0">
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		pomme banane</td>
+	<td class="txt1" valign="top">
+		renvoi les pages contenant au moins un de ces mots.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		+pomme +jus</td>
+	<td class="txt1" valign="top">
+		renvoi les pages contenant &agrave; la fois le mot pomme et le mot jus.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		+pomme arbre</td>
+	<td class="txt1" valign="top">
+		renvoi les pages contenant le mot 'pomme', mais les pages contenant &agrave; la fois
+		le mot 'pomme' et le mot 'arbre' sont class&eacute;es sup&eacute;rieures.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		+pomme -arbre</td>
+	<td class="txt1" valign="top">
+		renvoi les pages contenant le mot 'pomme' et pas le mot 'arbre'.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		+pomme +(&#62;arbre &#60;beignet)</td>
+	<td class="txt1" valign="top">
+		renvoi les pages contenant le mot 'pomme' et 'arbre',
+		ou 'pomme' et 'beignet',
+		mais les pages contenant les mots 'pomme arbre' sont class&eacute;es sup&eacute;rieures
+		que les pages contenant les mots 'pomme beignet'.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		pomm*</td>
+	<td class="txt1" valign="top">
+		renvoi les pages contenant 'pomme', 'pommes',
+		'pommier', ou 'pommeau'.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		"&Eacute;tats&ndash;Unis"</td>
+	<td class="txt1" valign="top">
+		renvoi les pages contenant l'expression pr&eacute;cise '&Eacute;tats&ndash;Unis'
+		(par exemple, renvoi les pages contenant 'vivre aux &Eacute;tats&ndash;Unis ' mais
+		ne renvoi ni 'les deux &eacute;tats unis' ni 'les &eacute;tats-unis').
+	</td>
+</tr>
+</table>
+
+</div>
+</BODY>
+</html>

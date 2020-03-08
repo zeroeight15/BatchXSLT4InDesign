@@ -1,0 +1,15 @@
+/* navigation help styles */
+.nav_help_container { margin:0; padding:3px; padding-left:6px; padding-right:6px; font-family:"Tahoma","Verdana","Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#333333;
+	height:381px;
+	-webkit-overflow-scrolling: touch;
+	overflow:auto;
+ }
+.nav_help_title { font-family:"Tahoma","Verdana","Arial",sans-serif; font-size:12pt; font-style:normal; font-weight:bold; color:#333333; }
+.nav_help_subtitle { padding-top:10px; font-family:"Tahoma","Verdana","Arial",sans-serif; font-size:10pt; font-style:normal; font-weight:bold; color:#333333; }
+.nav_help_txt { font-family:"Tahoma","Verdana","Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#333333; }
+.nav_help_txtbold { font-weight:bold; }
+.nav_help_txtinset { margin-left:25px; font-family:"Tahoma","Verdana","Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#333333; }
+.nav_help_tbl { width:95%; margin-left:25px; font-family:"Tahoma","Verdana","Arial",sans-serif; font-size:12pt; font-style:normal; font-weight:bold; color:#333333; }
+.nav_help_tbltxt { margin:0; padding:0; vertical-align:middle; font-family:"Tahoma","Verdana","Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#333333; }
+.nav_help_printthis { text-align:right; font-family:"Tahoma","Verdana","Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:bold; color:#333333; }
+.nav_help_language { text-align:right; font-family:"Tahoma","Verdana","Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#333333; }

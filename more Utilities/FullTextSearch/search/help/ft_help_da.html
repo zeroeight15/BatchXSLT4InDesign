@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<TITLE>MySQL Full-Text Search Help</TITLE>
+<link rel="StyleSheet" href="styles.css" type="text/css" media="all">
+</head>
+<BODY class="txt" bgcolor="#FFFFFF" style="margin-top:0px; margin-bottom:0px">
+<script language="JavaScript" type="text/javascript"><!--
+window.resizeTo(550,600);
+//--></script>
+<div class="txt">
+<table class="txt1" width="100%" border="0">
+<tr class="txt1">
+	<td valign="top" class="chapttitle" style="white-space: nowrap">
+		MySQL Full-Text Search Help
+	</td>
+	<td class="txt1" valign="top" align="right">
+		<a href="http://www.epaperarchives.com" target="_blank" title="">www.epaperarchives.com</a><br>
+		<a href="http://www.aiedv.ch" target="_blank" title="">www.aiedv.ch</a>
+	</td>
+</tr>
+</table>
+
+<hr size="2">
+Full-text search lets you find articles containing the word(s) specified in the field 
+<span style="background-color: #DDDDDD; white-space: nowrap">&nbsp;Fulltext Search&nbsp;</span>.<br>
+<!--
+By activating the check box 
+<span style="background-color: #DDDDDD; white-space: nowrap">&nbsp;All Objects&nbsp;</span>, 
+all objects currently contained in the database are searched, otherwise the currently active object is searched.<br>
+On some systems an other option is available:<br>
+By activating the check box 
+<span style="background-color: #DDDDDD; white-space: nowrap">&nbsp;Image Search&nbsp;</span> 
+images may be found, which were placed to an article in a certain context. 
+This function retrieves only articles which have an attached image.<br>-->
+<br>
+Articles may be searched for multiple words.<br>
+The words must be separated by a space like: apple wine earth<br>
+<br>
+<div class="minititle">
+The full-text search capability supports the following operators:
+</div>
+
+<table class="txt1" width="100%" border="0">
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		+</td>
+	<td class="txt1" valign="top">
+		A leading plus sign indicates that this word <b>must be</b> present.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		-</td>
+	<td class="txt1" valign="top">
+		A leading minus sign indicates that this word <b>must not be</b> 
+		present.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		(no<br> operator)</td>
+	<td class="txt1" valign="top">
+		By default (when neither <span class="microtitle">+</span> nor 
+		<span class="microtitle">-</span> is specified) the word is optional,
+		but <i>when</i> contained it will be rated higher.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		&#62; &#60;</td>
+	<td class="txt1" valign="top">
+		These two operators are used to change a word's contribution to the
+		relevance value that is assigned to a row.  The 
+		<span class="microtitle">&#62;</span> operator increases the contribution 
+		and the <span class="microtitle">&#60;</span> operator decreases it.
+		See the example below.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		( )</td>
+	<td class="txt1" valign="top">
+		Parentheses are used to group words into sub expressions.
+		Parenthesized groups can be nested.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		~</td>
+	<td class="txt1" valign="top">
+		A leading tilde acts as a negation operator, causing the word's 
+		contribution to the row relevance to be negative. It's useful for marking 
+		noise words. A text that contains such a word will be rated lower than 
+		others, but will not be excluded altogether, as it would be with the 
+		<span class="microtitle">-</span> operator.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		*</td>
+	<td class="txt1" valign="top">
+		An asterisk is the truncation operator. Unlike the other operators, it 
+		should be <b>appended</b> to the word.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		"</td>
+	<td class="txt1" valign="top">
+		A phrase that is enclosed within double quote 
+		(<span class="microtitle">"</span>) characters matches only 
+		text that contain the phrase <b>literally, as it was typed</b>.
+	</td>
+</tr>
+</table><br>
+
+
+
+
+<br>
+<div class="minititle">
+The examples demonstrate some search strings:
+</div>
+<table class="txt1" width="100%" border="0">
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		apple banana</td>
+	<td class="txt1" valign="top">
+		Find rows that contain at least one of the two words.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		+apple +juice</td>
+	<td class="txt1" valign="top">
+		Find rows that contain both words.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		+apple tree</td>
+	<td class="txt1" valign="top">
+		Find rows that contain the word 'apple', but rank rows 
+		higher if they also contain 'tree'.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		+apple -tree</td>
+	<td class="txt1" valign="top">
+		Find rows that contain the word 'apple' but not 'tree'.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		+apple +(&#62;tree &#60;strudel)</td>
+	<td class="txt1" valign="top">
+		Find rows that contain the words 'apple' and 'tree', 
+		or 'apple' and 'strudel' (in any order), 
+		but rank 'apple tree' higher than 'apple strudel'.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		apple*</td>
+	<td class="txt1" valign="top">
+		Find rows that contain words such as 'apple', 'apples', 
+		'applesauce', or 'applet'.
+	</td>
+</tr>
+<tr class="txt1">
+	<td valign="top" class="microtitle" style="white-space: nowrap">
+		"some words"</td>
+	<td class="txt1" valign="top">
+		Find rows that contain the exact phrase 'some words' (for example, rows
+		that contain 'some words of wisdom' but not 'some noise words').
+	</td>
+</tr>
+</table>
+
+</div>
+</BODY>
+</html>

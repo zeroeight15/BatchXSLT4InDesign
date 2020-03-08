@@ -1,0 +1,29 @@
+.ft_body { margin:0; font-family:"Verdana","Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#333333; }
+.ft_search_container { background-image:url("top_2x68.gif"); background-repeat:repeat-x;  font-family:"Verdana","Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#333333; }
+.ft_search_form { margin:0; padding:0; text-align:center; padding:0; }
+.ft_search_table { width:100%; }
+.ft_search_logo_td { padding:2px; }
+
+.ft_objects_select { margin-left:3px; margin-top:5px; margin-right:3px; background-color:#f9f9fa; width:230px; font-family:"Verdana","Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#333333; }
+.ft_objects_option {  }
+
+.ft_search_title_td { vertical-align:middle; text-align:center; }
+.ft_search_title {font-family:"Verdana","Arial",sans-serif; font-size:10pt; font-style:normal; font-weight:normal; color:#336699; }
+
+.ft_searchstr_td { vertical-align:top; text-align:left; padding:5px; white-space:nowrap; font-family:"Verdana","Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#333333; }
+.ft_searchstr { vertical-align:top; background-color:#f9f9fa; font-family:"Verdana","Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#333333; }
+.ft_num_results { vertical-align:top; background-color:#f9f9fa; font-family:"Verdana","Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#333333; }
+.ft_go { margin-left:3px; margin-right:25px; width:20px; height:20px;background-color:transparent; }
+.ft_help_td { vertical-align:top; padding-top:5px; padding-right:3px; cursor:help; text-decoration:none; }
+.ft_help { cursor:help; text-decoration:none; }
+
+
+#sb_ftresults_body { margin:0; font-family:"Tahoma","Verdana","Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#333333; }
+#ft_result { margin:0; font-family:"Tahoma","Verdana","Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#333333; }
+.sb_ftresults_container { margin:5px; font-family:"Tahoma","Verdana","Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#333333; }
+.ft_num_results_info { background-color:#f9f9fa; padding-left:5px; padding-top:2px; padding-bottom:2px; font-family:"Verdana","Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#333333; }
+.ft_item0 { margin-top:3px; padding:3px; background-color:#fdfeff; }
+.ft_item1 { margin-top:3px; padding:3px; background-color:#f0f0f3; }
+.ft_link { color:#9A0101; font-size:120%; text-decoration:none; }
+.ft_emphasterm { background-color:#ffff00; }
+
