@@ -15,7 +15,6 @@ A Java Virtual Machine must be bundles as an OSX app. The folder structure of an
 **JavaVM.app/**\
 >|\
 >|-- **Contents/**\
->>|\
 >>|-- Info.plist&nbsp;&nbsp;(MacOS only)\
 >>|-- PkgInfo&nbsp;&nbsp;(MacOS only)\
 >>|-- **MacOS/**&nbsp;&nbsp;(MacOS libjli.dylib)\
