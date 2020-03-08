@@ -10,6 +10,8 @@ If you want the Mac App (contains a Java VM for MacOS) then you may delete the f
 
 If you want the Windows app (contains a Java VM for Windows) you may delete the file 'BatchXSLT.sh'. Start BatchXSLT with a double-click on 'BatchXSLT.bat'.
 
+If you have not included a Java Virtual Machine in the compiled bundle, then make sure Java is installed on you machine.
+
 Now rename the folder 'BatchXSLT4InDesign-rawApp' to 'BatchXSLT4InDesign' and copy it into the 'Applications' folder.\
 Same procedure for Windows or Mac OS X.
 
