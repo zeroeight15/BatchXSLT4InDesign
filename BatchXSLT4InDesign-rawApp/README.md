@@ -1,3 +1,4 @@
+# The BatchXSLT4InDesign App Package
 The archive 'BatchXSLT4InDesign-rawApp' contains an entire 'raw' folder structure of the 'BatchXSLT4InDesign' Application.
 
 Download and un-zip it.
