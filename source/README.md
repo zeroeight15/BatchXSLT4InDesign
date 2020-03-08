@@ -1,3 +1,4 @@
+# Compiling your own BatchXSLT4InDesign
 The folder 'BatchXSLT-40' contains a **NetBeans** project including all java source files.
 
 Using the NetBeans IDE select 'Open Project' from the menu and navigate to the folder 'BatchXSLT-40' - this will import the project.
