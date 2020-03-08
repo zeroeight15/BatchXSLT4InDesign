@@ -6,6 +6,10 @@ Download and un-zip it.
 Copy a compiled 'BatchXSLT.app' into the folder 'BatchXSLT4InDesign-rawApp/BatchXSLT/' (right beside the contained autostart.jt).\
 The dummy folder named 'Replace with compiled BatchXSLT.app' can be deleted.
 
+If you want the Mac App (contains a Java VM for MacOS) then you may delete the file 'BatchXSLT.bat' (this is the starter for Windows).
+
+If you want the Windows app (contains a Java VM for Windows) you may delete the file 'BatchXSLT.sh'. Start BatchXSLT with a double-click on 'BatchXSLT.bat'.
+
 Now rename the folder 'BatchXSLT4InDesign-rawApp' to 'BatchXSLT4InDesign' and copy it into the 'Applications' folder.\
 Same procedure for Windows or Mac OS X.
 
