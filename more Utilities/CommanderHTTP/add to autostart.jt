@@ -1,0 +1,42 @@
+# add the following lines to the autostart.jt
+
+# ---- httpCommander stuff ----
+# set httpCommander_Active=1 to start the HTTP Command Server, 0 to not to start it
+httpCommander_Active=1
+# Defines for the remote http commander ( default: httpCommander_Port=8180 )
+httpCommander_Port=8180
+# the http server context root path. default = /
+# localhost:8180/
+httpCommander_ContextPath=/
+# the servers name. default = httpCommandServer
+httpCommander_Name=httpCommandServer
+# the document root. default=CommanderHTTP/
+# this folder must exist on same level as BatchXSLT.app
+# you may also give a full path to any folder on a disk (start path with a slash /  )
+httpCommander_DocumentRoot=CommanderHTTP/
+# Path/name to file to send on connection
+#httpCommander_HelloFile=OmniPage/omnipage.htm
+# the file type of hello file
+httpCommander_HelloFileType=text/html; charset=UTF-8
+# Path/name to file to send to log in
+httpCommander_LoginFile=login.htm
+# the file type of login file
+httpCommander_LoginFileType=text/html; charset=UTF-8
+
+# set httpCommander_secure=1 to force a logged in user with user name and password.
+# 0 for no login required
+httpCommander_secure=0
+# a user name and password: user,password
+httpCommander_userpass=itsme,4711
+httpCommander_userpass1=itsyou,0815
+httpCommander_userpass2=itshe,0817
+
+# Turn debug mode on or off: 1 to write debug information into the transformer log file
+httpCommander_DEBUG=0
+
+# where delivered jobtickets are stored in the application software package
+jobticketsPackagePath=CommanderHTTP/default/OmniPage/
+# where working jobtickets should be stored
+jobticketsWorkingPath=~/BatchXSLT4InDesignComm/BatchXSLT/jobtickets/
+# ---- END httpCommander stuff ----
+

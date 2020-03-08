@@ -1,0 +1,33 @@
+Omnipage XML to IMX slidebook XML
+------------------------
+
+Transform #1 - convert Omnipage XML to slidebook XML
+OmniXML2slideXML.jt (override.jt)
+------------
+source path: path to Omnipage XML files
+XSL: OmniXML2slideXML.xsl				(loads external javascript: OmniXML2slideXML.js)
+new extension: .xml						(page wise XML files)
+out path: any path/out
+
+
+
+Transform #2 - Merge page XML files into one XML file
+XMLfilesMerge.jt (override.jt1)
+------------
+source path: any path/out
+exclude file: .xml,XSLCSS  (process book file.idx folder index file)
+XSL: XMLfilesMerge.xsl
+out path: empty   - go into any path/out
+
+
+
+Transform #3 - convert xml book to html
+XML2html.jt (override.jt2)
+------------
+source path: any path/out
+exclude file: .idx  (exclude book file.idx folder index file)
+XSL: empty
+new extension: .htm
+out path: empty
+
+

@@ -1,0 +1,2539 @@
+<!DOCTYPE HTML>
+<!-- ******************
+	Version 1.3
+	Version Date: 20200303
+	
+	© aiedv.ch, All Rights Reserved
+*********************** -->
+<html>
+<head>
+<TITLE>BatchXSLT for OmniPage </TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META NAME="keywords" CONTENT="idml, xml, transformer, epaper, indesign, software, export, express, extract">
+<META NAME="description" CONTENT="InDesign IDML XML Batch Transformer by AiEDV.ch">
+<META name="Language" content="en">
+<META http-equiv="Content-Language" content="en"> 
+<META NAME="robots" CONTENT="INDEX,FOLLOW">
+<META name="Revisit-After" content="30 days"> 
+<style type="text/css" media="all">
+.body { position:relative; width:800px; margin:10px auto 0 auto; padding:0; padding-left:15px; padding-right:15px; padding-bottom:10px; font-family:"Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#600000;
+	border:1px solid #700000;
+	-webkit-border-radius:15px;
+	-moz-border-radius:15px;
+	border-radius:15px;
+
+ }
+.pagetitle { height:80px; padding-top:30px; background-color:#700000; text-align:center; font-family:"Arial",sans-serif; font-size:20pt; font-style:normal; font-weight:bold; color:#FAE55F; white-space:nowrap;
+	border:1px solid #700000;
+	-webkit-border-radius:0; -webkit-border-bottom-left-radius:15px; -webkit-border-bottom-right-radius:15px;
+	-moz-border-radius:0; -moz-border-radius-bottomleft:15px; -moz-border-radius-bottomright:15px;
+	border-radius:0; border-bottom-left-radius:15px; border-bottom-right-radius:15px;
+ }
+.pagesubtitle { padding-top:10px; text-align:center; font-family:"Arial",sans-serif; font-size:14pt; font-style:normal; font-weight:bold; color:#FAE55F; white-space:nowrap; }
+.chapttitle,h3 { font-family:"Arial",sans-serif; font-size:12pt; font-style:normal; font-weight:bold; color:#500000; }
+.title,h4 { font-family:"Arial",sans-serif; font-size:11pt; font-style:normal; font-weight:bold; color:#500000; }
+.subtitle,h5 { margin-bottom:4px; font-family:"Arial",sans-serif; font-size:10pt; font-style:normal; font-weight:bold; color:#500000; }
+.minititle,h6 { margin-bottom:3px; font-family:"Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:bold; color:#500000; }
+.txt { font-family:"Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#500000; }
+.txt_right { text-align:right; font-family:"Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#500000; }
+.txtbold { font-family:"Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:bold; color:#500000; }
+.textfield { width:660px; }
+.textfield100 { width:100px; }
+.textfield250 { width:250px; }
+.textfield400 { width:418px; }
+.listitem { margin-left:1.2em; text-indent:-1.2em; }
+.transformstatus_div { margin-top:10px; text-align:right; font-family:"Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#500000; }
+.aiedv { text-decoration:none; font-family:"Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#700000; }
+.separator { width:100%; margin-top:10px; margin-bottom:10px; height:1px; border:0; border-top:1px solid #700000; }
+.info { margin-left:5px; width:100%; text-align:left; }
+.info_item { display:inline-block; width:200px; color:#800000; font-weight:bold; }
+.infocenter { margin-top:5px; width:100%; text-align:center; }
+.btn { width:100px; }
+.btn_auto {  }
+.btn300 { width:300px; height:30px; font-size:12pt; font-weight:bold; color:#bbb; }
+.btn200 { width:200px; height:30px; font-size:12pt; font-weight:bold; color:#bbb; }
+.btn_right { text-align:right; }
+.jt_store { display:block; width:100%; height:150px; font-family:"Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#500000; }
+.table_web_settings { border:0; border-collapse:collapse; border-spacing:0; text-align:left; font-family:"Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:bold; color:#500000; }
+.table_ftp_settings { border:0; border-collapse:collapse; border-spacing:0; text-align:left; font-family:"Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:bold; color:#500000; }
+.table_db_settings { border:0; border-collapse:collapse; border-spacing:0; text-align:left; font-family:"Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:bold; color:#500000; }
+.table_title { text-align:center; font-family:"Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:bold; color:#500000; border-left:1px solid #900000; border-top:1px solid #900000; border-right:1px solid #900000; }
+.table_txt { padding-right:4px; text-align:left; font-family:"Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#500000; border-right:1px solid #900000; }
+.table_txt_right { text-align:right; font-family:"Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#500000; }
+.objects_avail_pop { display:inline-block; font-family:"Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#500000; }
+.objects__pop { width:auto; font-family:"Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#500000; }
+#transformstatus_icon { cursor:pointer; display:inline-block; background-color:transparent; text-align:center; width:1em; height:1em; border:1px solid #700000; font-family:"Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#500000; }
+#transformstatus {  display:inline-block; margin-left:5px; font-family:"Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#500000; }
+.work_iframe { width:100%; height:100px; border:1px solid #700000; font-family:"Arial",sans-serif; font-size:8pt; font-style:normal; font-weight:normal; color:#500000; }
+.cmd_iframe { width:100%; height:100px; border:1px solid #700000; }
+.post_form_txt { display:block; width:100%; height:150px; font-family:"Arial",sans-serif; font-size:9pt; font-style:normal; font-weight:normal; color:#500000; }
+.oldpress { position:absolute; top:-9px; right:30px; }
+#clf_msg { margin-left:10px; }
+#browser_nogood {  }
+#IE_too_old { display:none; width:60%; margin:80px auto 0 auto; padding:50px; text-align:center; background-color:red; font-family:"Arial",sans-serif; font-size:19pt; font-style:normal; font-weight:bold;color:#ff0; }
+#noscript { width:60%; margin:80px auto 0 auto; padding:50px; text-align:center; background-color:red; font-family:"Arial",sans-serif; font-size:19pt; font-style:normal; font-weight:bold;color:#ff0; }
+#page_content {  }
+#toggledebug { cursor:pointer; }
+.visible { display:block; }
+.hidden { display:none; }
+.hidden_work { display:none; }
+
+#settings_FTP_ftpOutputPathName { color:#a09090; padding:3px;  }
+</style>
+<script type="text/javascript">
+	//****** detect device and browser type
+	function detectTouchDevice() {
+		try {
+			document.createEvent("TouchEvent");
+			return(true);
+		} catch (e) {}
+		return(false);
+	}
+	var userAgent = navigator.userAgent,
+		is_mobileOS = (typeof(window.orientation) != 'undefined'),
+		isTouchDevice = detectTouchDevice(),
+		is_Safari = false,
+		is_Firefox = false,
+		is_Chrome = false,
+		is_Opera = false,
+		IEVersion = 0,
+		is_IE = false,
+		is_IE5 = false,
+		is_IE6 = false,
+		is_IE7 = false,
+		is_IE8 = false,
+		is_IE9 = false,
+		is_IE10 = false,
+		is_IE11 = false,
+		is_IElt9 = false,
+		is_otherBrowser = (userAgent.toLowerCase().indexOf("series60") != -1) || (userAgent.toLowerCase().indexOf("symbian") != -1) || (userAgent.toLowerCase().indexOf("windows ce") != -1) || (userAgent.toLowerCase().indexOf("blackberry") != -1),
+		is_Win = false,
+		is_Mac = false,
+		is_Linux = false,
+		is_Android = false,
+		is_iOS = false,
+		is_iPad = false,
+		is_iPhone = false,
+		cur_lang=null,	/*language as short text like de fr en - set default to english */
+		cur_lang_ID=0;	/*language IDs */
+	// get machine type
+	if (userAgent.toUpperCase().indexOf(" MAC") > -1) is_Mac = true;
+	if (userAgent.toUpperCase().indexOf("WINDOWS") > -1) is_Win = true;
+	if (userAgent.toUpperCase().indexOf("ANDROID") > -1) is_Android = true;
+	if (userAgent.toUpperCase().indexOf("LINUX") > -1) is_Linux = true;
+	if (navigator.platform.toUpperCase().indexOf("LINUX ARM") > -1) { is_Linux = true; is_Android = true;}
+	if (navigator.platform.indexOf("iPad") > -1) { is_iOS = true; is_iPad = true }
+	if (navigator.platform.indexOf("iPhone") > -1) { is_iOS = true; is_iPhone = true; }
+	
+	try {	// old versions of IE 6 WIN do not know navigator.userAgent
+		is_Android = (userAgent.toUpperCase().indexOf("ANDROID") > -1) || (!is_iOS && !is_otherBrowser && isTouchDevice && is_mobileOS) ? true : false;
+		is_Safari = (userAgent.toUpperCase().indexOf("SAFARI") > -1);
+		is_Firefox = (userAgent.toUpperCase().indexOf("FIREFOX") > -1);
+		is_Chrome = (userAgent.toUpperCase().indexOf("CHROME") > -1);
+		is_Opera = (userAgent.toUpperCase().indexOf("OPERA") > -1);
+		is_MobileOS = (userAgent.toUpperCase().indexOf("MOBILE") > -1);
+	}
+	catch (e) {}
+	if (navigator.appName.toUpperCase().indexOf("EXPLORER")>-1) {
+		cur_lang=navigator.userLanguage;	//for Internet Explorer
+		cur_lang=cur_lang.substr(0,2);
+		is_IE = true;
+		do {
+			if (userAgent.indexOf("MSIE 5") >= 0) { is_IE5 = true; is_IElt9 = true; IEVersion = 5; break; }
+			if (userAgent.indexOf("MSIE 6") >= 0) { is_IE6 = true; is_IElt9 = true; IEVersion = 6; break; }
+			if (userAgent.indexOf("MSIE 7") >= 0) { is_IE7 = true; is_IElt9 = true; IEVersion = 7; break; }
+			if (userAgent.indexOf("MSIE 8") >= 0) { is_IE8 = true; is_IElt9 = true; IEVersion = 8; break; }
+			if (userAgent.indexOf("MSIE 9") >= 0) { is_IE9 = true; is_IElt9 = false; IEVersion = 9; break; }
+			if (userAgent.indexOf("MSIE 10") >= 0) { is_IE10 = true; is_IElt9 = false; IEVersion = 10; break; }
+			if (userAgent.indexOf("MSIE 11") >= 0) { is_IE11 = true; is_IElt9 = false; IEVersion = 11; break; }
+		} while(false);
+	}
+	else {//like: " Mozilla/5.0 (Macintosh, U; PPC Mac OS X Mach-O; de-DE; rv:1.7.10) Gecko/20050717 Firefox/1.0.6
+		//lets filter the 4th part - semicolon separated - within the ()
+		try {
+			if (window.navigator.language) {
+				cur_lang = window.navigator.language.substr(0,2);
+			}
+			else {
+				var start=userAgent.indexOf("("),
+					end=userAgent.indexOf(")"),
+					verstr=userAgent.substring(start+1,end),
+					parts=verstr.split("; ");
+				if (parts.length > 3) cur_lang=parts[3].substr(0,2);	// FF 4, opera WIN have 3 parts only
+				else {
+					cur_lang = "en";
+					try {	// may be, we should get this from HTTP_ACCEPT_LANGUAGE
+						cur_lang = window.navigator.language.substr(0,2);
+					} catch(e) { cur_lang = "en"; }
+				}
+			}
+		} catch(e) { cur_lang="en"; }
+	}
+
+
+	// --- make presets
+	var uri = window.location.href;		// full request (incl. Query and hash)
+	var hash = window.location.hash;	// like #blabla
+	//alert("uri: " + uri + "\nhash: " + hash);
+	var protocol = window.location.protocol;
+	var hostname = window.location.hostname;
+	var port = window.location.port;
+	var plainURI = protocol + "//" + hostname +":" + port;
+	var appn = window.location.port;
+	var wrkifrm = null;
+	var parentDocument = window.document;
+	var call_next_value = true;
+	var tranformerValues_complete = false;
+	var transformerStatus_CheckInterval = 5000;
+	var transformerStatus_CheckContinuous = false;
+
+	var communication_path = "";
+	var communication_queue_filename = "";
+	
+	var settings_slidebook = new Array();
+			// set default values - will be overwritten of JobTicket 'override.jt'
+			settings_slidebook.object_settings_avail = "default";	// all available settings: all sub paths within the settings for this object
+			settings_slidebook.object_name = "default";	// the current active settings: the 'default' sub path within the settings for this object
+			settings_slidebook.move_textoverflow = "0";			// 1 to try to rearrange text when out of region bounds
+			settings_slidebook.pageJPEGScale = "400x";
+			settings_slidebook.pageJPEGQuality = "80";
+			settings_slidebook.imageSCALE = "1.0";
+			settings_slidebook.imageMAXWIDTH = "400";
+			settings_slidebook.imageQUALITY = "90";
+			settings_slidebook.merge_individual_bookpagesPDF = "0";	// 1 to create merged document PDF from all single page PDFs
+			settings_slidebook.extractImageMetaData = "1";			// 1 to extract meta data from images
+
+	var settings_FTP = new Array();
+			settings_FTP.sourcePathName = "";		// this is the outputPathName of previous transform
+			settings_FTP.ftpDomain = "ftp://mydomain.com";
+			settings_FTP.ftpDataRootPath = "/subdomains/mysubdomain/httpdocs/epaper/";			// the path seen from FTP server's root to the epaper's main data path
+			settings_FTP.ftpOutputPathName = "";
+			settings_FTP.ftpUsername = "";
+			settings_FTP.ftpPassword = "";
+			settings_FTP.ftpPort = "21";
+			settings_FTP.ftpEncoding = "UTF-8";
+			settings_FTP.transferXSLCSS = "";	// will be set to "XSLCSS", injobticket as: excludeSourceFileNameExts = XSLCSS
+
+	var settings_DB = new Array();
+			settings_DB.sourcePathName = "";
+			settings_DB.outputPathName = "*NONE*";
+			settings_DB.db_url = "mydomain.com";
+			settings_DB.port = "3306";
+			settings_DB.db = "ft_slidebooks";
+			settings_DB.dbtbl = "flipbook_1";
+			settings_DB.user = "";
+			settings_DB.pw = "";
+			settings_DB.object_id = "";
+			settings_DB.DOMAIN = "mydomain.com";
+			settings_DB.root_datapath = "epaper/DATA/";
+			settings_DB.sub_path_override = "";
+			settings_DB.encoding = "UTF-8";
+			settings_DB.PDFtextExtract = "0";
+			settings_DB.min_text_length_4db = "30";
+
+
+	function init() {
+		// --- test for suitable browser
+		if (is_IE && (IEVersion <= 8)) {
+			document.getElementById("page_content").style.display = "none";
+			document.getElementById("IE_too_old").style.display = "block";
+			return;
+		}
+		// set some infos
+		wrkifrm = window.document.getElementById("work_iframe");
+
+		// set the infos into the page
+		document.getElementById("url").innerHTML = plainURI;	// preset to show where we want to connect
+
+		document.getElementById("infos").innerHTML = "";			// reset system infos field
+		document.getElementById("new_settings_name").value = "";	// reset save as new object group
+
+		document.getElementById("object_name").innerHTML = settings_slidebook.object_name;
+		
+		settings_FTP.ftpOutputPathName = concatPaths(settings_FTP.ftpDomain,settings_FTP.ftpDataRootPath);
+		document.getElementById("settings_FTP_ftpOutputPathName").innerHTML = settings_FTP.ftpOutputPathName;
+
+
+		call_next_value = true;	// enable get_TranformerValues()
+		tranformerValues_complete = false;
+		setTimeout(function() {get_TranformerValues();},1);
+		check_tranformerValues_complete();
+	}
+	function check_tranformerValues_complete() {
+		if (!tranformerValues_complete) {
+			setTimeout(function() {check_tranformerValues_complete();},250);
+			return;
+		}
+		// set internal variables and filed values retrieved from downloaded JobTickets
+		do_presets();
+	}
+
+	transformer_status_timeout = null;
+	function get_transformer_status(continuous) {
+		if (transformer_status_timeout != null) { clearTimeout(transformer_status_timeout); transformer_status_timeout = null; }
+		transformerStatus_CheckContinuous = continuous;
+		if (call_next_value == false) {
+			transformer_status_timeout = setTimeout(function() { get_transformer_status(transformerStatus_CheckContinuous);},50);
+			return;
+		}
+		wrkifrm.setAttribute("onload","wrkhandle(\"ts\")");	// get transformer status
+		wrkifrm.src = plainURI + "?ts";
+		call_next_value = false;
+		var t_icon = document.getElementById("transformstatus_icon");
+		if (transformerStatus_CheckContinuous) {
+			t_icon.innerHTML = (transformerStatus_CheckContinuous ? Math.round(transformerStatus_CheckInterval / 1000) : "&bull;");
+			if (t_icon.style.backgroundColor != "transparent") t_icon.style.backgroundColor = "transparent";
+			else t_icon.style.backgroundColor = "#C5FFCC";
+			transformer_status_timeout = setTimeout(function() { get_transformer_status(continuous);},transformerStatus_CheckInterval);
+			return;
+		}
+		// stopping continuous check
+		if (transformer_status_timeout != null) { clearTimeout(transformer_status_timeout); transformer_status_timeout = null; }
+		t_icon.style.backgroundColor = "transparent";
+		document.getElementById("transformstatus_icon").innerHTML = "&bull;";
+	}
+
+	var current_TranformerValue = 0;
+	function get_TranformerValues() {	// get infos from BatchXSLT Transformer
+		if (call_next_value == false) {
+			setTimeout(function() { get_TranformerValues();},50);
+			//alert("call_next_value DELAY: " + call_next_value);
+			return;
+		}
+		var done = false;
+		current_TranformerValue++;
+		switch (current_TranformerValue) {
+			case 1:
+				wrkifrm.setAttribute("onload","wrkhandle(\"appn\")");	// get application info
+				wrkifrm.src = plainURI + "?appn";
+				call_next_value = false;
+				break;
+			case 2:
+				wrkifrm.setAttribute("onload","wrkhandle(\"pjg\")");	// get available JobTicket groups
+				wrkifrm.src = plainURI + "?pjg";
+				call_next_value = false;
+				break;
+			case 3:
+				get_transformer_status(false);
+				//wrkifrm.setAttribute("onload","wrkhandle(\"ts\")");	// get transformer status
+				//wrkifrm.src = plainURI + "?ts";
+				//call_next_value = false;
+				break;
+
+			case 4:
+				wrkifrm.setAttribute("onload","wrkhandle(\"jt\")");	// the first JobTicket contains the source and output paths
+				wrkifrm.src = plainURI + "?pjf=" + settings_slidebook.object_name + ",override.jt";
+				call_next_value = false;
+				break;
+			case 5:
+				wrkifrm.setAttribute("onload","wrkhandle(\"jt1\")");	// the 2nd JobTicket: transform OmniPage XML to slidebook XML
+				wrkifrm.src = plainURI + "?pjf=" + settings_slidebook.object_name + ",override.jt1";
+				call_next_value = false;
+				break;
+			case 6:
+				wrkifrm.setAttribute("onload","wrkhandle(\"jt2\")");	// the 3rd JobTicket: convert slidebook XML to HTML
+				wrkifrm.src = plainURI + "?pjf=" + settings_slidebook.object_name + ",override.jt2";
+				call_next_value = false;
+				break;
+			case 7:
+				wrkifrm.setAttribute("onload","wrkhandle(\"jt3\")");	// the 4th JobTicket: FTP transfer
+				wrkifrm.src = plainURI + "?pjf=" + settings_slidebook.object_name + ",override.jt3";
+				call_next_value = false;
+				break;
+			case 8:
+				wrkifrm.setAttribute("onload","wrkhandle(\"jt4\")");	// the 5th JobTicket: transfer into fulltext DB
+				wrkifrm.src = plainURI + "?pjf=" + settings_slidebook.object_name + ",override.jt4";
+				call_next_value = false;
+				break;
+			case 9:
+				wrkifrm.setAttribute("onload","wrkhandle(\"pcd\")");	// communications folder
+				wrkifrm.src = plainURI + "?pcd";
+				call_next_value = false;
+				break;
+			case 10:
+				wrkifrm.setAttribute("onload","wrkhandle(\"pcn\")");	// communications queue file name
+				wrkifrm.src = plainURI + "?pcn";
+				call_next_value = false;
+				break;
+
+			default:
+				wrkhandle("disable_handler");
+				done = true;
+				break;
+		}
+		if (done) {
+			current_TranformerValue = 0;	// reset
+			tranformerValues_complete = true;
+			return;
+		}
+		//alert("current_TranformerValue: " + current_TranformerValue);
+		setTimeout(function() { get_TranformerValues();},50);
+	}
+
+	function wrkhandle(func,clear_after) {
+		var wrkifrm_Document = null;
+		if (!is_IE || (is_IE && IEVersion >= 8)) wrkifrm_Document = wrkifrm.contentDocument;
+		else {
+			wrkifrm_Document = wrkifrm.document;
+		}
+		var wrkifrm_Body = wrkifrm_Document.getElementsByTagName("body")[0];
+		wrkifrm_Document.close();
+
+		switch (func) {
+			case "appn":
+				parentDocument.getElementById("url").innerHTML = wrkifrm_Body.innerHTML+ " : " + plainURI;
+				break;
+			case "pjg":
+				var object_name_list = wrkifrm_Body.innerHTML
+				if ((object_name_list != "") && (object_name_list.indexOf("#ERROR#") <= 0)) {
+					settings_slidebook.object_settings_avail = wrkifrm_Body.innerHTML
+					// build a popup to select settings if more than one
+					var pop_built = build_object_settings_pop(settings_slidebook.object_settings_avail);
+				}
+				else {
+				}
+				break;
+			case "ts":		// transformer status
+				parentDocument.getElementById("transformstatus").innerHTML = wrkifrm_Body.innerHTML;
+				parentDocument.getElementById("transformstatus_icon").innerHTML = (transformerStatus_CheckContinuous ? Math.round(transformerStatus_CheckInterval / 1000) : "&bull;");
+				break;
+			case "jt":		// store first JobTicket
+				wrkifrm_Body.innerHTML = remove_phone_links(wrkifrm_Body.innerHTML);
+				parentDocument.getElementById("override_jt").value = wrkifrm_Body.innerHTML;
+				break;
+			case "jt1":		// store 2nd JobTicket
+				wrkifrm_Body.innerHTML = remove_phone_links(wrkifrm_Body.innerHTML);
+				parentDocument.getElementById("override_jt1").value = wrkifrm_Body.innerHTML;
+				break;
+			case "jt2":		// store 3rd JobTicket
+				wrkifrm_Body.innerHTML = remove_phone_links(wrkifrm_Body.innerHTML);
+				parentDocument.getElementById("override_jt2").value = wrkifrm_Body.innerHTML;
+				break;
+			case "jt3":		// store 4th JobTicket (FTP)
+				wrkifrm_Body.innerHTML = remove_phone_links(wrkifrm_Body.innerHTML);
+				parentDocument.getElementById("override_jt3").value = wrkifrm_Body.innerHTML;
+				break;
+			case "jt4":		// store 5th JobTicket (Fulltext DB)
+				wrkifrm_Body.innerHTML = remove_phone_links(wrkifrm_Body.innerHTML);
+				parentDocument.getElementById("override_jt4").value = wrkifrm_Body.innerHTML;
+				break;
+
+			case "pcd":	// communications folder
+				parentDocument.getElementById("infos").innerHTML += "<div class=\"info\"><span class=\"info_item\">Communication Folder: </span>" + wrkifrm_Body.innerHTML + "</div>";
+				parent.communication_path = wrkifrm_Body.innerHTML;
+				break;
+			case "pcn":	// communications queue file name
+				parentDocument.getElementById("infos").innerHTML += "<div class=\"info\"><span class=\"info_item\">JobTickets Queue File Name: </span>" + wrkifrm_Body.innerHTML + "</div>";
+				parent.communication_queue_filename = wrkifrm_Body.innerHTML;
+				break;
+
+			case "clf":	// clearing log file: return the OK message
+				parentDocument.getElementById("clf_msg").innerHTML = wrkifrm_Body.innerHTML;
+				if (clear_after) setTimeout(function() { document.getElementById("clf_msg").innerHTML = ""; },clear_after);
+				break;
+
+			case "disable_handler":	// disable this onload handler
+				wrkifrm.setAttribute("onload","");
+				break;
+		}
+		parent.call_next_value = true;
+		//alert("func was: " + func +"\nparent.call_next_value: " + parent.call_next_value +"\n from current_TranformerValue: " + parent.current_TranformerValue);
+	}
+	// on iPad automatic detection of phone numbers turns date strings like '20120823' into a link like <a href="tel:20120823">20120823</a>
+	// we have to remove such strings
+	var phonenumber_links_start=new RegExp("<a href=\"tel:(.)*?\">", "gi")
+	var phonenumber_links_end=new RegExp("</a>", "gi")
+	function remove_phone_links(str) {
+		var s = str.replace(phonenumber_links_start,"");
+		return(s.replace(phonenumber_links_end,""));
+	}
+
+	/*
+	 * Validate all given settings
+	 */
+	function settings_valid() {
+		enable_transform_btn(false);
+		enable_ftpTransfer_btn(false);
+		enable_dbTransfer_btn(false);
+		// Source and output path may not be the same
+		var srcpath = document.getElementById("srcpathname").value.toLowerCase();
+		var outpath = document.getElementById("outputpathname").value.toLowerCase();
+		if ((srcpath == "") || (outpath == "")) {
+		  if (srcpath == "") document.getElementById("srcpathname").placeholder = "set Source Path";
+		  if (outpath == "") document.getElementById("outputpathname").placeholder = "set Output Path";
+			alert("'Source Path' and 'Output Path' may not be empty!");
+			return(false);
+		}
+		if (srcpath == outpath) {
+			alert("'Source Path' and 'Output Path' may not be the same!");
+			return(false);
+		}
+		if (outpath.indexOf(srcpath) == 0) {
+			alert("'Output Path' may not be within the 'Source Path'!");
+			return(false);
+		}
+				
+		
+		// all settings are fine: enable the Transform button
+		enable_transform_btn(true);
+		enable_ftpTransfer_btn(true);
+		enable_dbTransfer_btn(true);
+		return(true);
+	}
+	function enable_transform_btn(state) {
+		var btn = document.getElementById("transformBtn");
+		btn.disabled = !state;
+		if (!state) btn.style.color = "#F00000";	// red
+		else btn.style.color = "#009000";	// green
+	}
+	function enable_ftpTransfer_btn(state) {
+		var btn = document.getElementById("ftpTransferBtn");
+		btn.disabled = !state;
+		if (!state) btn.style.color = "#F00000";	// red
+		else btn.style.color = "#009000";	// green
+	}
+	function enable_dbTransfer_btn(state) {
+		var btn = document.getElementById("dbTransferBtn");
+		btn.disabled = !state;
+		if (!state) btn.style.color = "#F00000";	// red
+		else btn.style.color = "#009000";	// green
+	}
+
+	/*
+	 * New group name may not have disallowed characters in name because this will become a folder
+	 */
+	function check_groupname(el) {
+		try {
+			var curval = el.value;
+			// Windows disallowed: < > : " / \ | ? * ^
+			if (curval.indexOf("<") >= 0) curval = curval.replace(/\</gi,"");
+			if (curval.indexOf(">") >= 0) curval = curval.replace(/\>/gi,"");
+			if (curval.indexOf(":") >= 0) curval = curval.replace(/:/gi,"");
+			if (curval.indexOf("/") >= 0) curval = curval.replace(/\//gi,"");
+			if (curval.indexOf("\"") >= 0) curval = curval.replace(/"/gi,"");
+			if (curval.indexOf("\\") >= 0) curval = curval.replace(/\\/gi,"");
+			if (curval.indexOf("|") >= 0) curval = curval.replace(/\|/gi,"");
+			if (curval.indexOf("!") >= 0) curval = curval.replace(/\!/gi,"");
+			if (curval.indexOf(".") >= 0) curval = curval.replace(/\./gi,"");
+			if (curval.indexOf(",") >= 0) curval = curval.replace(/,/gi,"");
+			if (curval.indexOf("?") >= 0) curval = curval.replace(/\?/gi,"");
+			if (curval.indexOf("*") >= 0) curval = curval.replace(/\*/gi,"");
+			if (curval.indexOf("^") >= 0) curval = curval.replace(/\^/gi,"");
+			if (curval.indexOf("&") >= 0) curval = curval.replace(/\&/gi,"");
+			
+			if (curval.length > 31) curval = curval.substr(0,31);
+			
+			if (curval != el.value) el.value = curval;
+		} catch(e) {}
+	}
+
+	/*
+	 * Get preset values from downloaded JobTickets
+	 */
+	function do_presets() {
+		var parts = null;
+		var s = "";
+		var srcpathname = "";
+		var outputpathname = "";
+		// ******************************* override_jt
+		// ----- get settings from first JobTicket file
+		// ----- get jobticket content of 'override_jt'
+		var jt = document.getElementById("override_jt").value;
+		//var re=/sourcePathName(.)*?[\r\n]/; re.lastIndex = 0;	// IE8 hack
+		var arr = jt.match(/sourcePathName(.)*[\r\n]/g);
+		if (arr) {
+			srcpathname = get_value_lrt(arr[0]);
+			document.getElementById("srcpathname").value = srcpathname;
+		}
+		// ----- get output path
+		arr = jt.match(/outputPathName(.)*[\r\n]/g);
+		if (arr) {
+			outputpathname = get_value_lrt(arr[0]);
+			document.getElementById("outputpathname").value = outputpathname;
+		}
+
+		// ----- set srcpathname in override_jt[1-2]
+		update_jobtickets(null,srcpathname, outputpathname);
+
+		// ----- set slidebook values from override_jt;
+		arr = jt.match(/pageJPEGScale(.)*[\r\n]/g);
+		if (arr) {
+			settings_slidebook.pageJPEGScale = get_value_lrt(arr[0]);
+			document.getElementById("sbsettings_pageJPEGScale").value = settings_slidebook.pageJPEGScale;
+		}
+		arr = jt.match(/pageJPEGQuality(.)*[\r\n]/g);
+		if (arr) {
+			settings_slidebook.pageJPEGQuality = get_value_lrt(arr[0]);
+			document.getElementById("sbsettings_pageJPEGQuality").value = settings_slidebook.pageJPEGQuality;
+		}
+
+		arr = jt.match(/imageMAXWIDTH(.)*[\r\n]/g);
+		if (arr) {
+			settings_slidebook.imageMAXWIDTH = get_value_lrt(arr[0]);
+			document.getElementById("sbsettings_imageMAXWIDTH").value = settings_slidebook.imageMAXWIDTH;
+		}
+		arr = jt.match(/imageQUALITY(.)*[\r\n]/g);
+		if (arr) {
+			settings_slidebook.imageQUALITY = get_value_lrt(arr[0]);
+			document.getElementById("sbsettings_imageQUALITY").value = settings_slidebook.imageQUALITY;
+		}
+		arr = jt.match(/extractImageMetaData(.)*[\r\n]/g);
+		if (arr) {
+			settings_slidebook.extractImageMetaData = get_value_lrt(arr[0]);
+			document.getElementById("sbsettings_extractImageMetaData").checked = (settings_slidebook.extractImageMetaData == "0" ? false : true);
+		}
+		arr = jt.match(/move_textoverflow(.)*[\r\n]/g);
+		if (arr) {
+			settings_slidebook.move_textoverflow = get_value_lrt(arr[0]);
+			document.getElementById("sbsettings_move_textoverflow").checked = (settings_slidebook.move_textoverflow == "0" ? false : true);
+		}
+
+		// ******************************* override_jt1
+		// ----- set slidebook values from override_jt1 - merging documents (XML and PDF)
+		// ----- get jobticket content of 'override_jt1'
+		jt = document.getElementById("override_jt1").value;
+		arr = jt.match(/merge_individual_bookpagesPDF(.)*[\r\n]/g);
+		if (arr) {
+			settings_slidebook.merge_individual_bookpagesPDF = get_value_lrt(arr[0]);
+			document.getElementById("sbsettings_merge_individual_bookpagesPDF").checked = (settings_slidebook.merge_individual_bookpagesPDF == "0" ? false : true);
+		}
+
+		// ******************************* override_jt3
+		// ----- set slidebook values from override_jt3 - FTP transfer
+		// ----- get jobticket content of 'override_jt3'
+		jt = document.getElementById("override_jt3").value;
+		arr = jt.match(/sourcePathName(.)*[\r\n]/g);
+		if (arr) {
+			settings_FTP.sourcePathName = get_value_lrt(arr[0]);
+			document.getElementById("settings_FTP_sourcePathName").value = settings_FTP.sourcePathName;
+		}
+		arr = jt.match(/ftpDomain(.)*[\r\n]/g);
+		if (arr) {
+			settings_FTP.ftpDomain = get_value_lrt(arr[0]);
+			document.getElementById("settings_FTP_ftpDomain").value = settings_FTP.ftpDomain;
+		}
+		arr = jt.match(/ftpDataRootPath(.)*[\r\n]/g);
+		if (arr) {
+			settings_FTP.ftpDataRootPath = get_value_lrt(arr[0]);
+			document.getElementById("settings_FTP_ftpDataRootPath").value = settings_FTP.ftpDataRootPath;
+		}
+		arr = jt.match(/outputPathName(.)*[\r\n]/g);
+		if (arr) {
+			settings_FTP.ftpOutputPathName = get_value_lrt(arr[0]);
+			document.getElementById("settings_FTP_ftpOutputPathName").innerHTML = settings_FTP.ftpOutputPathName;
+		}
+
+		arr = jt.match(/ftpUsername(.)*[\r\n]/g);
+		if (arr) {
+			settings_FTP.ftpUsername = get_value_lrt(arr[0]);
+			document.getElementById("settings_FTP_ftpUsername").value = settings_FTP.ftpUsername;
+		}
+		arr = jt.match(/ftpPassword(.)*[\r\n]/g);
+		if (arr) {
+			settings_FTP.ftpPassword = get_value_lrt(arr[0]);
+			document.getElementById("settings_FTP_ftpPassword").value = settings_FTP.ftpPassword;
+		}
+		arr = jt.match(/ftpPort(.)*[\r\n]/g);
+		if (arr) {
+			settings_FTP.ftpPort = get_value_lrt(arr[0]);
+			document.getElementById("settings_FTP_ftpPort").value = settings_FTP.ftpPort;
+		}
+		arr = jt.match(/ftpEncoding(.)*[\r\n]/g);
+		if (arr) {
+			settings_FTP.ftpEncoding = get_value_lrt(arr[0]);
+			//this field is not available now: document.getElementById("settings_FTP_ftpEncoding").value = settings_FTP.ftpEncoding;
+		}
+		arr = jt.match(/excludeSourceFileNameExts(.)*[\r\n]/g);
+		if (arr) {
+			settings_FTP.transferXSLCSS = get_value_lrt(arr[0]);
+			document.getElementById("settings_FTP_transferXSLCSS").checked = (settings_FTP.transferXSLCSS == "" ? true : false);
+		}
+
+		// ******************************* override_jt4
+		// ----- set slidebook values from override_jt4 - DB transfer
+		// ----- get jobticket content of 'override_jt4'
+		jt = document.getElementById("override_jt4").value;
+		arr = jt.match(/sourcePathName(.)*[\r\n]/g);
+		if (arr) {
+			settings_DB.sourcePathName = get_value_lrt(arr[0]);
+			document.getElementById("settings_DB_sourcePathName").value = settings_DB.sourcePathName;
+		}
+		arr = jt.match(/db_url(.)*[\r\n]/g);
+		if (arr) {
+			settings_DB.db_url = get_value_lrt(arr[0]);
+			document.getElementById("settings_DB_db_url").value = settings_DB.db_url;
+		}
+		arr = jt.match(/port(.)*[\r\n]/g);
+		if (arr) {
+			settings_DB.port = get_value_lrt(arr[0]);
+			document.getElementById("settings_DB_port").value = settings_DB.port;
+		}
+		arr = jt.match(/db[ =](.)*[\r\n]/g);
+		if (arr) {
+			settings_DB.db = get_value_lrt(arr[0]);
+			document.getElementById("settings_DB_db").value = settings_DB.db;
+		}
+		arr = jt.match(/dbtbl(.)*[\r\n]/g);
+		if (arr) {
+			settings_DB.dbtbl = get_value_lrt(arr[0]);
+			document.getElementById("settings_DB_dbtbl").value = settings_DB.dbtbl;
+		}
+		arr = jt.match(/user(.)*[\r\n]/g);
+		if (arr) {
+			settings_DB.user = get_value_lrt(arr[0]);
+			document.getElementById("settings_DB_user").value = settings_DB.user;
+		}
+		arr = jt.match(/pw(.)*[\r\n]/g);
+		if (arr) {
+			settings_DB.pw = get_value_lrt(arr[0]);
+			document.getElementById("settings_DB_pw").value = settings_DB.pw;
+		}
+		arr = jt.match(/object_id(.)*[\r\n]/g);
+		if (arr) {
+			settings_DB.object_id = get_value_lrt(arr[0]);
+			document.getElementById("settings_DB_object_id").value = settings_DB.object_id;
+		}
+		arr = jt.match(/DOMAIN(.)*[\r\n]/g);
+		if (arr) {
+			settings_DB.DOMAIN = get_value_lrt(arr[0]);
+			document.getElementById("settings_DB_DOMAIN").value = settings_DB.DOMAIN;
+		}
+		arr = jt.match(/root_datapath(.)*[\r\n]/g);
+		if (arr) {
+			settings_DB.root_datapath = get_value_lrt(arr[0]);
+			document.getElementById("settings_DB_root_datapath").value = settings_DB.root_datapath;
+		}
+		arr = jt.match(/PDFtextExtract(.)*[\r\n]/g);
+		if (arr) {
+			settings_DB.PDFtextExtract = get_value_lrt(arr[0]);
+			document.getElementById("settings_DB_PDFtextExtract").checked = (settings_DB.PDFtextExtract == "0" ? false : true);
+		}
+		arr = jt.match(/min_text_length_4db(.)*[\r\n]/g);
+		if (arr) {
+			settings_DB.min_text_length_4db = get_value_lrt(arr[0]);
+			document.getElementById("settings_DB_min_text_length_4db").value = settings_DB.min_text_length_4db;
+		}
+
+
+		// ******************************* Check stuff
+		// ----- check some important values
+		//alert("Comm: "+communication_path +"\n"+communication_queue_filename);
+
+		// ----- set 'complete' message
+		document.getElementById("url").innerHTML += " - READY";
+		
+		settings_valid();
+		return;
+	}
+
+	function update_jobtickets(srcID, srcpathname, outputpathname, othervalue) {
+		//alert(srcID + "\n"+othervalue);
+		var settings_OK = settings_valid();
+		if (!settings_OK) return;
+
+		if ((srcID == null) || (srcID.indexOf("sbsettings_") < 0)) {	// the input fields 'srcpathname' and 'outputpathname' which must be set in all JobTockets
+			for (var i=0; i<=2; i++) {	// we do not alert FTP override.jt3, DB override.jt4
+				var jt_ID = "override_jt";
+				if (i > 0) jt_ID = jt_ID+i;
+				var jt_elem = document.getElementById(jt_ID);
+				jt = jt_elem.value;
+				if (i == 0) {
+					if (srcpathname) jt = jt.replace(/sourcePathName(.)*[\r\n]/,"sourcePathName=" + srcpathname + "\r\n");
+					if (outputpathname) jt = jt.replace(/outputPathName(.)*[\r\n]/,"outputPathName=" + outputpathname + "\r\n");
+					jt_elem.value = jt;
+				}
+				else if (outputpathname) jt_elem.value = jt.replace(/sourcePathName(.)*[\r\n]/,"sourcePathName=" + outputpathname + "\r\n");
+			}
+			return;
+		}
+		// set other slidebook settings
+		var jt_ID = "override_jt";
+		var jt_elem = null;
+		var it = "";
+		switch (srcID) {
+			case "sbsettings_pageJPEGScale":
+				jt_elem = document.getElementById(jt_ID);
+				jt = jt_elem.value;
+				jt_elem.value = jt.replace(/tp_5 = pageJPEGScale(.)*[\r\n]/,"tp_5 = pageJPEGScale=" + othervalue + "\r\n");
+				break;
+			case "sbsettings_pageJPEGQuality":
+				jt_elem = document.getElementById(jt_ID);
+				jt = jt_elem.value;
+				jt_elem.value = jt.replace(/tp_7 = pageJPEGQuality(.)*[\r\n]/,"tp_7 = pageJPEGQuality=" + othervalue + "\r\n");
+				break;
+
+			case "sbsettings_imageMAXWIDTH":
+				jt_elem = document.getElementById(jt_ID);
+				jt = jt_elem.value;
+				jt_elem.value = jt.replace(/tp_17 = imageMAXWIDTH(.)*[\r\n]/,"tp_17 = imageMAXWIDTH=" + othervalue + "\r\n");
+				break;
+			case "sbsettings_imageQUALITY":
+				jt_elem = document.getElementById(jt_ID);
+				jt = jt_elem.value;
+				jt_elem.value = jt.replace(/tp_15 = imageQUALITY(.)*[\r\n]/,"tp_15 = imageQUALITY=" + othervalue + "\r\n");
+				break;
+			case "sbsettings_extractImageMetaData":
+				jt_elem = document.getElementById(jt_ID);
+				jt = jt_elem.value;
+				newcheck = '1';
+				if (othervalue == false) newcheck = '0';
+				jt_elem.value = jt.replace(/tp_100 = extractImageMetaData(.)*[\r\n]/,"tp_100 = extractImageMetaData=" + newcheck + "\r\n");
+				break;
+			case "sbsettings_move_textoverflow":
+				jt_elem = document.getElementById(jt_ID);
+				jt = jt_elem.value;
+				newcheck = '1';
+				if (othervalue == false) newcheck = '0';
+				jt_elem.value = jt.replace(/tp_101 = move_textoverflow(.)*[\r\n]/,"tp_101 = move_textoverflow=" + newcheck + "\r\n");
+				break;
+
+			case "sbsettings_merge_individual_bookpagesPDF":
+				//alert(othervalue);
+				jt_ID = jt_ID+"1";	// 'override_jt' merging documents
+				jt_elem = document.getElementById(jt_ID);
+				jt = jt_elem.value;
+				newcheck = '1';
+				if (othervalue == false) newcheck = '0';
+				jt_elem.value = jt.replace(/tp_100 = merge_individual_bookpagesPDF(.)*[\r\n]/,"tp_100 = merge_individual_bookpagesPDF=" + newcheck + "\r\n");
+				break;
+
+		}
+	}
+
+	function endsWith(str, s){
+		if ( (str == null) || (str == "") ) return(false);
+		if ( (s == null) || (s == "") ) return(false);
+		var reg = new RegExp (s + "$");
+		return reg.test(str);
+	}
+	function concatPaths(path1,path2) {
+		var newpath = path1;
+		if (endsWith(newpath,"/") == false) newpath += "/";
+		if (path2.charAt(0) == "/") newpath += path2.substr(1);
+		else newpath += path2;
+		return(newpath);
+	}
+	function update_FTP_jobticket(srcID, value) {
+		// set other slidebook settings
+		var jt_ID = "override_jt3";
+		var jt_elem = document.getElementById(jt_ID);
+		var jt = jt_elem.value;
+		switch (srcID) {
+			case "settings_FTP_sourcePathName":
+				settings_FTP.sourcePathName = value;
+				jt_elem.value = jt.replace(/sourcePathName(.)*[\r\n]/,"sourcePathName=" + settings_FTP.sourcePathName + "\r\n");
+				break;
+			case "settings_FTP_ftpDomain":	// concat FTP domain and ftpDataRootPath
+				settings_FTP.ftpDomain = value;
+				jt_elem.value = jt.replace(/ftpDomain(.)*[\r\n]/,"ftpDomain=" + settings_FTP.ftpDomain + "\r\n");
+				settings_FTP.ftpOutputPathName = concatPaths(settings_FTP.ftpDomain,settings_FTP.ftpDataRootPath);
+				document.getElementById("settings_FTP_ftpOutputPathName").innerHTML = settings_FTP.ftpOutputPathName;
+				jt = jt_elem.value;
+				jt_elem.value = jt.replace(/outputPathName(.)*[\r\n]/,"outputPathName=" + settings_FTP.ftpOutputPathName + "\r\n");
+				break;
+			case "settings_FTP_ftpDataRootPath":	// concat FTP domain and ftpDataRootPath
+				settings_FTP.ftpDataRootPath = value;
+				jt_elem.value = jt.replace(/ftpDataRootPath(.)*[\r\n]/,"ftpDataRootPath=" + settings_FTP.ftpDataRootPath + "\r\n");
+				settings_FTP.ftpOutputPathName = concatPaths(settings_FTP.ftpDomain,settings_FTP.ftpDataRootPath);
+				document.getElementById("settings_FTP_ftpOutputPathName").innerHTML = settings_FTP.ftpOutputPathName;
+				jt = jt_elem.value;
+				jt_elem.value = jt.replace(/outputPathName(.)*[\r\n]/,"outputPathName=" + settings_FTP.ftpOutputPathName + "\r\n");
+				break;
+			case "settings_FTP_transferXSLCSS":		// checkbox transfer XSLCSS folder too
+				settings_FTP.transferXSLCSS = value;
+				if (settings_FTP.transferXSLCSS == true) jt_elem.value = jt.replace(/excludeSourceFileNameExts(.)*[\r\n]/,"excludeSourceFileNameExts=\r\n");
+				else jt_elem.value = jt.replace(/excludeSourceFileNameExts(.)*[\r\n]/,"excludeSourceFileNameExts=XSLCSS\r\n");
+				break;
+			case "settings_FTP_ftpUsername":
+				settings_FTP.ftpUsername = value;
+				jt_elem.value = jt.replace(/ftpUsername(.)*[\r\n]/,"ftpUsername=" + settings_FTP.ftpUsername + "\r\n");
+				break;
+			case "settings_FTP_ftpPassword":
+				settings_FTP.ftpPassword = value;
+				jt_elem.value = jt.replace(/ftpPassword(.)*[\r\n]/,"ftpPassword=" + settings_FTP.ftpPassword + "\r\n");
+				break;
+			case "settings_FTP_ftpPort":
+				settings_FTP.ftpPort = value;
+				jt_elem.value = jt.replace(/ftpPort(.)*[\r\n]/,"ftpPort=" + settings_FTP.ftpPort + "\r\n");
+				break;
+		}
+	}
+	function update_DB_jobticket(srcID, value) {
+		// set other slidebook settings
+		var jt_ID = "override_jt4";
+		var jt_elem = document.getElementById(jt_ID);
+		var jt = jt_elem.value;
+		switch (srcID) {
+			case "settings_DB_sourcePathName":
+				settings_DB.sourcePathName = value;
+				jt_elem.value = jt.replace(/sourcePathName(.)*[\r\n]/,"sourcePathName=" + settings_DB.sourcePathName + "\r\n");
+				break;
+			case "settings_DB_db_url":
+				settings_DB.db_url = value;
+				jt_elem.value = jt.replace(/db_url[ =](.)*[\r\n]/,"db_url=" + settings_DB.db_url + "\r\n");
+				break;
+			case "settings_DB_port":
+				settings_DB.port = value;
+				jt_elem.value = jt.replace(/port[ =](.)*[\r\n]/,"port=" + settings_DB.port + "\r\n");
+				break;
+			case "settings_DB_db":
+				settings_DB.db = value;
+				jt_elem.value = jt.replace(/db[ =](.)*[\r\n]/,"db=" + settings_DB.db + "\r\n");
+				break;
+			case "settings_DB_dbtbl":
+				settings_DB.dbtbl = value;
+				jt_elem.value = jt.replace(/dbtbl[ =](.)*[\r\n]/,"dbtbl=" + settings_DB.dbtbl + "\r\n");
+				break;
+			case "settings_DB_user":
+				settings_DB.user = value;
+				jt_elem.value = jt.replace(/user[ =](.)*[\r\n]/,"user=" + settings_DB.user + "\r\n");
+				break;
+			case "settings_DB_pw":
+				settings_DB.pw = value;
+				jt_elem.value = jt.replace(/pw[ =](.)*[\r\n]/,"pw=" + settings_DB.pw + "\r\n");
+				break;
+			case "settings_DB_object_id":
+				settings_DB.object_id = value;
+				jt_elem.value = jt.replace(/object_id[ =](.)*[\r\n]/,"object_id=" + settings_DB.object_id + "\r\n");
+				break;
+			case "settings_DB_DOMAIN":
+				settings_DB.DOMAIN = value;
+				jt_elem.value = jt.replace(/DOMAIN[ =](.)*[\r\n]/,"DOMAIN=" + settings_DB.DOMAIN + "\r\n");
+				break;
+			case "settings_DB_root_datapath":
+				settings_DB.root_datapath = value;
+				jt_elem.value = jt.replace(/root_datapath[ =](.)*[\r\n]/,"root_datapath=" + settings_DB.root_datapath + "\r\n");
+				break;
+			case "settings_DB_PDFtextExtract":
+				settings_DB.PDFtextExtract = (value == true ? "1" : "0");
+				jt_elem.value = jt.replace(/PDFtextExtract[ =](.)*[\r\n]/,"PDFtextExtract=" + settings_DB.PDFtextExtract + "\r\n");
+				break;
+			case "settings_DB_min_text_length_4db":
+				settings_DB.min_text_length_4db = value;
+				jt_elem.value = jt.replace(/min_text_length_4db[ =](.)*[\r\n]/,"min_text_length_4db=" + settings_DB.min_text_length_4db + "\r\n");
+				break;
+		}
+	}
+	function save_jobtickets() {
+		var settings_OK = settings_valid();
+		if (!settings_OK) return;
+
+		var submit_form = document.getElementById("post_form");
+		var submit_content = document.getElementById("post_content");
+		var jtn = "", commands = "";
+		var new_group = "";
+		var new_name = document.getElementById("new_settings_name").value;
+		if (new_name != "") new_group = new_name;
+		if (new_group != "") settings_slidebook.object_name = new_group;
+		// prepare the JobTicket files
+		for (var i=0; i<=4; i++) {
+			jtn = "override.jt";
+			var jt_ID = "override_jt";
+			if (i > 0) {
+				jtn = jtn+i;
+				jt_ID = jt_ID+i;
+				commands += "&";
+			}
+			var cont = document.getElementById(jt_ID).value;
+			if (cont.length < 5) continue;
+			if (cont.indexOf("#ERROR#") >= 0) continue;
+			cont = cont.replace(/\&/gi,"%26");
+			commands += "savejtfile=" + communication_path +"jobtickets/" + settings_slidebook.object_name + "/" + jtn + "," + cont;
+		}
+		//alert("save_jobtickets:\n"+commands);
+		
+		submit_content.value = commands;
+		submit_form.target = "cmd_iframe";
+		submit_form.submit();	// submit to write jobticket file
+		
+		// check if we have saved as new object
+		if (new_name != "") {
+			init();
+		}
+		return;
+	}
+
+	function transform() {
+		var settings_OK = settings_valid();
+		if (!settings_OK) return;
+
+		var ticks = new Date().getTime();
+		var submit_form = document.getElementById("post_form");
+		var submit_content = document.getElementById("post_content");
+		var jtn = "", queuefile_content = "", commands = "";
+
+		// prepare the JobTicket files to make the transform (no FTP and no fulltext-DB load)
+		for (var i=0; i<=2; i++) {	// first 3 JTs only; override.jt, .jt1, .jt2
+			jtn = ticks + "override.jt";
+			var jt_ID = "override_jt";
+			if (i > 0) {
+				jtn = jtn+i;
+				jt_ID = jt_ID+i;
+			}
+			var cont = document.getElementById(jt_ID).value;
+			if (cont.indexOf("#ERROR#") >= 0) continue;
+			if (i > 0) commands += "&";
+			queuefile_content += jtn + "\r\n";	// add jobticket name to queue
+			cont = cont.replace(/\&/gi,"%26");
+			commands += "writefile=" + communication_path + jtn + "," + cont;
+		}
+		// write the queue file
+		//alert("Starting Transform queue: "+queuefile_content);
+		commands += "&appendfile=" + communication_path + communication_queue_filename + "," + queuefile_content;
+		submit_content.value = commands;
+		//alert(submit_content.value);
+		submit_form.target = "cmd_iframe";
+		submit_form.submit();	// submit to write jobticket file and start transformer
+		
+		get_transformer_status(true);
+
+		return(true);
+	}
+
+
+	function ftpTransfer() {
+		var settings_OK = settings_valid();
+		if (!settings_OK) return;
+
+		var ticks = new Date().getTime();
+		var submit_form = document.getElementById("post_form");
+		var submit_content = document.getElementById("post_content");
+		var jtn = "", queuefile_content = "", commands = "";
+
+		// prepare the JobTicket file for FTP tranfer
+		jtn = ticks + "override.jt3";
+		var jt_ID = "override_jt3";
+
+		var cont = document.getElementById(jt_ID).value;
+		if (cont.indexOf("#ERROR#") >= 0) return(true);
+
+		queuefile_content += jtn + "\r\n";	// add jobticket name to queue
+		commands += "writefile=" + communication_path + jtn + "," + cont;
+
+		// write the queue file
+		//alert("Starting FTP queue: "+queuefile_content);
+		commands += "&appendfile=" + communication_path + communication_queue_filename + "," + queuefile_content;
+		submit_content.value = commands;
+		//alert(submit_content.value);
+
+		submit_form.target = "cmd_iframe";
+		submit_form.submit();	// submit to write jobticket file and start transformer
+		
+		get_transformer_status(true);
+
+		return(true);
+	}
+	function dbTransfer() {
+		var settings_OK = settings_valid();
+		if (!settings_OK) return;
+
+		var ticks = new Date().getTime(),
+			submit_form = document.getElementById("post_form"),
+			submit_content = document.getElementById("post_content"),
+			jtn = "", jtn = "", queuefile_content = "", commands = "";
+
+		// prepare the JobTicket file for FTP tranfer
+		jtn = ticks + "override.jt4";
+		jt_ID = "override_jt4";
+
+		var cont = document.getElementById(jt_ID).value;
+
+		if (cont.indexOf("#ERROR#") >= 0) return(true);
+		
+		cont = cont.replace(/&amp;/gi,"&");
+		cont = Base64.encode(cont);
+
+		queuefile_content += jtn + "\r\n";	// add jobticket name to queue
+		commands += "writefiledb64=" + communication_path + jtn + "," + cont;
+
+		// write the queue file
+		//alert("Starting FTP queue: "+queuefile_content);
+		commands += "&appendfile=" + communication_path + communication_queue_filename + "," + queuefile_content;
+
+		submit_content.value = commands;
+		//alert(submit_content.value);
+
+		submit_form.target = "cmd_iframe";
+		submit_form.submit();	// submit to write jobticket file and start transformer
+		
+		get_transformer_status(true);
+
+		return(true);
+	}
+
+	function post_command(command,target,getResponse,clear_after) {
+		var submit_form = document.getElementById("post_form");
+		var submit_content = document.getElementById("post_content");
+		if (getResponse && (getResponse === true)) {
+			if (clear_after) document.getElementById(target).setAttribute("onload","wrkhandle(\"" + command + "\"," + clear_after + ")");	// to get a response like 'OK'
+			else document.getElementById(target).setAttribute("onload","wrkhandle(\"" + command + "\")");	// to get a response like 'OK'
+		}
+		submit_content.value = command;
+		submit_form.target = target;
+		submit_form.submit();
+		return(true);
+	}
+
+	function build_object_settings_pop(list) {	// list = comma separated names	"default, My Object, Other,..."
+		document.getElementById("objects_avail_pop").innerHTML = "";
+		if ((list == null) || (list == "")) return(-1);
+		var obj_arr = list.split(",");
+		if (obj_arr.length < 2) return(-2);
+		var droplist = "<select id=\"objects_pop\" name=\"objects_pop\" class=\"objects_pop\" size=\"1\" onchange=\"objectchange(this)\">";
+			for (var i = 0; i < obj_arr.length;i++) {
+				droplist += "<option value=\"" + obj_arr[i] + "\"";
+				if (obj_arr[i] == settings_slidebook.object_name) droplist += " selected=\"selected\"";
+				droplist += ">" + obj_arr[i] + "</option>";
+			}
+			droplist += "</select>";
+
+		document.getElementById("objects_avail_pop").innerHTML = droplist;
+		document.getElementById("objects_avail_tile").innerHTML = "Available Settings: ";
+		return(0);
+	}
+	function objectchange(select) {	// user has selected a new setting
+		if (!select) return;
+		var new_object = select.options[select.selectedIndex].value;
+		
+		settings_slidebook.object_name = new_object;
+
+		init();
+		return;
+	}
+
+	var cmdorig = "";
+	function manual_command(reset) {
+		var cmdfld = document.getElementById("cmd_fld");
+		if (reset === true) {
+			cmdfld.value = cmdorig;	// reset original
+			cmdorig = "";
+			return;
+		}
+		var cmd = cmdfld.value;
+		cmdorig = cmd;
+		if (cmd == "") return(false);
+		//cmd = encodeURI(cmd);
+		cmd = cmd.replace(/%/gi,"%25");
+		cmd = cmd.replace(/\+/gi,"%2B");
+		cmd = cmd.replace(/\&/gi,"%26");
+		cmdfld.value = cmd.replace(/ /gi,"%20");
+		var cmdform = document.getElementById("omni_command");
+		cmdform.target = "cmd_iframe";
+		cmdform.submit();
+		setTimeout(function(){manual_command(true);},100);
+		return(true);
+	}
+	
+	function toggledebug(e) {	// show/hide all hidden content for debugging
+		var evt = e;
+		if (document.all) evt = window.event;
+  	//	var altPressed  = evt.altKey;
+   		//alert(altPressed);
+   	//	if (!altPressed && !isTouchDevice) return;	// we can not hold Alt-key on touch devices
+
+		var section = document.getElementById("manual_commands");
+		var curclassName = section.className;
+		if (curclassName == "hidden") section.className = "visible";
+		else section.className = "hidden";
+		//alert(curclassName);
+		section = document.getElementById("jtFiles");
+		var curclassName = section.className;
+		if (curclassName == "hidden_work") section.className = "visible";
+		else section.className = "hidden_work";
+		//alert(curclassName);
+	}
+
+	function get_value_lrt(s) {	// get value parts of "key=value" string and left/right trim the value (could be a path)
+		if ((s == null) || (s == "")) return("");
+		var pos = s.indexOf("=");
+		if (pos < 0) return("");
+		var sv = s.substr(pos+1);
+		return(sv.lrtrim());
+	}
+	String.prototype.trim = function() {
+		return this.replace(/^\s+|\s+$/g,"");
+	}
+	String.prototype.ltrim = function() {
+		return this.replace(/^\s+/,"");
+	}
+	String.prototype.rtrim = function() {
+		return this.replace(/\s+$/,"");
+	}
+	String.prototype.lrtrim = function() {
+		var s = this.replace(/^\s+/,"");
+		return s.replace(/\s+$/,"");
+	}
+
+
+/*
+Base64 encoding/decoding
+Copyright (c) 2008 Fred Palmer fred.palmer_at_gmail.com
+*/
+function StringBuffer()
+{ 
+    this.buffer = []; 
+} 
+
+StringBuffer.prototype.append = function append(string)
+{ 
+    this.buffer.push(string); 
+    return this; 
+}; 
+
+StringBuffer.prototype.toString = function toString()
+{ 
+    return this.buffer.join(""); 
+}; 
+
+var Base64 =
+{
+    codex : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
+
+    encode : function (input)
+    {
+        var output = new StringBuffer();
+
+        var enumerator = new Utf8EncodeEnumerator(input);
+        while (enumerator.moveNext())
+        {
+            var chr1 = enumerator.current;
+
+            enumerator.moveNext();
+            var chr2 = enumerator.current;
+
+            enumerator.moveNext();
+            var chr3 = enumerator.current;
+
+            var enc1 = chr1 >> 2;
+            var enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+            var enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+            var enc4 = chr3 & 63;
+
+            if (isNaN(chr2))
+            {
+                enc3 = enc4 = 64;
+            }
+            else if (isNaN(chr3))
+            {
+                enc4 = 64;
+            }
+
+            output.append(this.codex.charAt(enc1) + this.codex.charAt(enc2) + this.codex.charAt(enc3) + this.codex.charAt(enc4));
+        }
+
+        return output.toString();
+    },
+
+    decode : function (input)
+    {
+        var output = new StringBuffer();
+
+        var enumerator = new Base64DecodeEnumerator(input);
+        while (enumerator.moveNext())
+        {
+            var charCode = enumerator.current;
+
+            if (charCode < 128)
+                output.append(String.fromCharCode(charCode));
+            else if ((charCode > 191) && (charCode < 224))
+            {
+                enumerator.moveNext();
+                var charCode2 = enumerator.current;
+
+                output.append(String.fromCharCode(((charCode & 31) << 6) | (charCode2 & 63)));
+            }
+            else
+            {
+                enumerator.moveNext();
+                var charCode2 = enumerator.current;
+
+                enumerator.moveNext();
+                var charCode3 = enumerator.current;
+
+                output.append(String.fromCharCode(((charCode & 15) << 12) | ((charCode2 & 63) << 6) | (charCode3 & 63)));
+            }
+        }
+
+        return output.toString();
+    }
+}
+
+
+function Utf8EncodeEnumerator(input)
+{
+    this._input = input;
+    this._index = -1;
+    this._buffer = [];
+}
+
+Utf8EncodeEnumerator.prototype =
+{
+    current: Number.NaN,
+
+    moveNext: function()
+    {
+        if (this._buffer.length > 0)
+        {
+            this.current = this._buffer.shift();
+            return true;
+        }
+        else if (this._index >= (this._input.length - 1))
+        {
+            this.current = Number.NaN;
+            return false;
+        }
+        else
+        {
+            var charCode = this._input.charCodeAt(++this._index);
+
+            // "\r\n" -> "\n"
+            //
+            if ((charCode == 13) && (this._input.charCodeAt(this._index + 1) == 10))
+            {
+                charCode = 10;
+                this._index += 2;
+            }
+
+            if (charCode < 128)
+            {
+                this.current = charCode;
+            }
+            else if ((charCode > 127) && (charCode < 2048))
+            {
+                this.current = (charCode >> 6) | 192;
+                this._buffer.push((charCode & 63) | 128);
+            }
+            else
+            {
+                this.current = (charCode >> 12) | 224;
+                this._buffer.push(((charCode >> 6) & 63) | 128);
+                this._buffer.push((charCode & 63) | 128);
+            }
+
+            return true;
+        }
+    }
+}
+
+function Base64DecodeEnumerator(input)
+{
+    this._input = input;
+    this._index = -1;
+    this._buffer = [];
+}
+
+Base64DecodeEnumerator.prototype =
+{
+    current: 64,
+
+    moveNext: function()
+    {
+        if (this._buffer.length > 0)
+        {
+            this.current = this._buffer.shift();
+            return true;
+        }
+        else if (this._index >= (this._input.length - 1))
+        {
+            this.current = 64;
+            return false;
+        }
+        else
+        {
+            var enc1 = Base64.codex.indexOf(this._input.charAt(++this._index));
+            var enc2 = Base64.codex.indexOf(this._input.charAt(++this._index));
+            var enc3 = Base64.codex.indexOf(this._input.charAt(++this._index));
+            var enc4 = Base64.codex.indexOf(this._input.charAt(++this._index));
+
+            var chr1 = (enc1 << 2) | (enc2 >> 4);
+            var chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+            var chr3 = ((enc3 & 3) << 6) | enc4;
+
+            this.current = chr1;
+
+            if (enc3 != 64)
+                this._buffer.push(chr2);
+
+            if (enc4 != 64)
+                this._buffer.push(chr3);
+
+            return true;
+        }
+    }
+};
+
+
+
+
+</script>
+</head>
+
+<body class="body" onload="init()">
+<div class="pagetitle">BatchXSLT for OmniPage
+	<div class="pagesubtitle">XML Transformer Web Commander</div>
+</div>
+
+<div id="browser_nogood">
+	<noscript>
+		<div id="noscript">
+			Javascript MUST be enabled<br>
+			to communicate with the<br>
+			BatchXSLT Transformer!
+		</div>
+	</noscript>
+	<div id="IE_too_old">
+		Use Internet Explorer 9 or newer<br>
+		to communicate with the<br>
+		BatchXSLT Transformer!<br>
+		<br>
+		Suitable Browsers are:<br>
+		Firefox, Safari, Chrome, Explorer 9 and newer or any other standards compliant Browser.
+	</div>
+
+</div>
+<div id="page_content">
+
+<div class="txt">
+<div id="url" class="infocenter" title="If this message ends with 'READY' the Transformer is reachable and you are ready to to tell him what to do."></div>
+<div class="title">Current Setting: <span id="object_name" class="txt">default</span></div>
+<span class="title" id="objects_avail_tile"></span><div id="objects_avail_pop" class="objects_avail_pop"></div><br>
+
+<br>
+<div class="title">Input &amp; Output Settings:</div>
+<form id="omni_settings" name="omni_settings" class="txt" method="post">
+	<table>
+		<tr>
+			<td title="The path who's content should be converted to web output (an eBook). Source and Output Path may not be the same! These paths must be seen from the easeEPub Transformer's view point.">Source Path: </td><td title="The path who's content should be converted to web output (an eBook). Source and Output Path may not be the same! These paths must be seen from the easeEPub Transformer's view point."><input class="textfield" type="text" id="srcpathname" name="srcpathname" value="" onkeyup="update_jobtickets(this.id,this.value,null);"></td>
+		</tr>
+		<tr>
+			<td title="The output path where the new web output (an eBook) should be stored. Source and Output Path may not be the same! These paths must be seen from the easeEPub Transformer's view point.">Output Path: </td><td title="The output path where the new web output (an eBook) should be stored. Source and Output Path may not be the same! These paths must be seen from the easeEPub Transformer's view point."><input class="textfield" type="text" id="outputpathname" name="outputpathname" value="" onkeyup="update_jobtickets(this.id,null,this.value);"></td>
+		</tr>
+	</table>
+</form>
+<br>
+<div class="title">General Settings:</div>
+<table>
+	<tr>
+		<!-- first column -->
+		<td class="table_txt_right" title="Check to rearrange possibly misspositioned text">Rearrange miss-positioned text:</td><td class="table_txt" title="Check to rearrange possibly misspositioned text"><input class="" type="checkbox" id="sbsettings_move_textoverflow" name="sbsettings_move_textoverflow" value="" checked="false" onchange="update_jobtickets(this.id,null,null,this.checked);"></td>
+	</tr>
+</table><br>
+
+<br>
+<div class="title">Web Settings:</div>
+<table class="table_web_settings">
+	<tr>
+		<!-- first column title -->
+		<td colspan="2" class="table_title">Page Previews</td>
+		<td class="table_spacer">&nbsp;</td>
+		<!-- second column title -->
+		<td colspan="2" class="table_title">Images</td>
+		<!-- last column title: the 'Save JobTickets' button -->
+		<td colspan="2" class="txt"></td>
+	</tr>
+	<tr>
+		<!-- first column -->
+		<td class="table_txt_right" title="The horizontal width of page image previews. Default is 400 pixels (400x: where the additional x means x-direction).">Page JPEG size:</td><td class="table_txt" title="The horizontal width of page image previews. Default is 400 pixels (400x: where the additional x means x-direction)."><input class="textfield100" type="text" id="sbsettings_pageJPEGScale" name="sbsettings_pageJPEGScale" value="" onkeyup="update_jobtickets(this.id,null,null,this.value);"> px</td>
+		<td></td>
+		<!-- second column -->
+		<td class="table_txt_right" title="The maximum width of first exported image. Default is 400px.">JPEG max width:</td><td class="table_txt" title="The maximum width of first exported image. Default is 400px."><input class="textfield100" type="text" id="sbsettings_imageMAXWIDTH" name="sbsettings_imageMAXWIDTH" value="" onkeyup="update_jobtickets(this.id,null,null,this.value);"> px</td>
+	</tr>
+	<tr>
+		<!-- first column -->
+		<td class="table_txt_right" title="The JPEG quality of page image previews. Default is 80. Possible values: 1-100. The higher the value, the better the image quality, the larger the image file.">Page JPEG Quality:</td><td class="table_txt" title="The JPEG quality of page image previews. Default is 80. Possible values: 1-100. The higher the value, the better the image quality, the larger the image file."><input class="textfield100" type="text" id="sbsettings_pageJPEGQuality" name="sbsettings_pageJPEGQuality" value="" onkeyup="update_jobtickets(this.id,null,null,this.value);"></td>
+		<td></td>
+		<!-- second column -->
+		<td class="table_txt_right" title="The JPEG quality of images. Default is 90. Possible values: 1-100. The higher the value, the better the image quality, the larger the image file.">JPEG Quality:</td><td class="table_txt" title="The JPEG quality of images. Default is 90. Possible values: 1-100. The higher the value, the better the image quality, the larger the image file."><input class="textfield100" type="text" id="sbsettings_imageQUALITY" name="sbsettings_imageQUALITY" value="" onkeyup="update_jobtickets(this.id,null,null,this.value);"></td>
+	</tr>
+	<tr>
+		<!-- first column -->
+		<td class="table_txt_right" title="Check to merge all single page PDFs into an additional merged document PDF">Create Document PDF:</td><td class="table_txt" title="Check to merge all single page PDFs into an additional merged document PDF"><input class="" type="checkbox" id="sbsettings_merge_individual_bookpagesPDF" name="sbsettings_merge_individual_bookpagesPDF" value="" checked="checked" onchange="update_jobtickets(this.id,null,null,this.checked);"></td>
+		<td></td>
+		<!-- second column -->
+		<td class="table_txt_right" title="Check to extract metadata from images (if available)">incl. Image Meta Data:</td><td class="table_txt" title="Check to extract metadata from images (if available)"><input class="" type="checkbox" id="sbsettings_extractImageMetaData" name="sbsettings_extractImageMetaData" value="" checked="checked" onchange="update_jobtickets(this.id,null,null,this.checked);"></td>
+	</tr>
+</table>
+<br>
+<div class="btn_right"><input id="transformBtn" class="btn300" type="button" disabled="true" value=" Transform " title="Click to start the Transform. Check the BatchXSLT Transformer for completion and then the 'Output Path' for your slidebook." onclick="transform();"></div><!-- transform it -->
+<div class="transformstatus_div" id="transformstatus_div"><div id="transformstatus_icon" title="Click to start/stop continuous status checks" onclick="get_transformer_status(!transformerStatus_CheckContinuous)"></div> Transformer Status: <div id="transformstatus"></div></div><!-- transformer status (idle or busy) -->
+
+
+<!-- ************************************************* -->
+<div class="title">FTP Settings:</div>
+<table>
+	<tr>
+		<td title="The path who's content should be pushed to an FTP server.">Source Path: </td><td title="The path who's content should be pushed to an FTP server."><input class="textfield" type="text" id="settings_FTP_sourcePathName" name="settings_FTP_sourcePathName" value="" onkeyup="update_FTP_jobticket(this.id,this.value,null);"></td>
+	</tr>
+</table>
+<table class="table_ftp_settings">
+	<tr>
+		<!-- first column title -->
+		<td colspan="2" class="table_title">FTP Server URL/Paths</td>
+		<td class="table_spacer">&nbsp;</td>
+		<!-- second column title -->
+		<td colspan="2" class="table_title">FTP Login</td>
+	</tr>
+	<tr>
+		<!-- first column -->
+		<td class="table_txt_right" title="The FTP server's domain name.">FTP Domain:</td><td class="table_txt" title="The FTP server's domain name."><input class="textfield400" type="text" id="settings_FTP_ftpDomain" name="settings_FTP_ftpDomain" value="" onkeyup="update_FTP_jobticket(this.id,this.value);"></td>
+		<td></td>
+		<!-- second column -->
+		<td class="table_txt_right" title="FTP Login name">FTP User Name:</td><td class="table_txt" title="FTP Login name"><input class="textfield100" type="text" id="settings_FTP_ftpUsername" name="settings_FTP_ftpUsername" value="" onkeyup="update_FTP_jobticket(this.id,this.value);"></td>
+	</tr>
+	<tr>
+		<!-- first column -->
+		<td class="table_txt_right" title="The path seen from FTP root to the epaper main folder">Data Root Path:</td><td class="table_txt" title="The path seen from FTP root to the epaper main folder"><input class="textfield400" type="text" id="settings_FTP_ftpDataRootPath" name="settings_FTP_ftpDataRootPath" value="" onkeyup="update_FTP_jobticket(this.id,this.value);"><br><div id="settings_FTP_ftpOutputPathName">&nbsp;</div></td>
+		<td></td>
+		<!-- second column -->
+		<td class="table_txt_right" title="FTP Password">FTP Password:</td><td class="table_txt" title="FTP Password"><input class="textfield100" type="password" id="settings_FTP_ftpPassword" name="settings_FTP_ftpPassword" value="" onkeyup="update_FTP_jobticket(this.id,this.value);"></td>
+	</tr>
+	<tr>
+		<!-- first column -->
+		<td class="table_txt_right" title="Check to transfer XSLCSS folder too">Transfer XSLCSS:</td><td class="table_txt" title="Check to transfer XSLCSS folder too"><input class="" type="checkbox" id="settings_FTP_transferXSLCSS" name="settings_FTP_transferXSLCSS" value="" checked="checked" onchange="update_FTP_jobticket(this.id,this.checked);"></td>
+		<td></td>
+		<!-- second column -->
+		<td class="table_txt_right" title="FTP Port">FTP Port:</td><td class="table_txt" title="FTP Port"><input class="textfield100" type="text" id="settings_FTP_ftpPort" name="settings_FTP_ftpPort" value="" onkeyup="update_FTP_jobticket(this.id,this.value);"></td>
+	</tr>
+</table>
+<br>
+<div class="btn_right"><input id="ftpTransferBtn" class="btn200" type="button" disabled="true" value=" FTP Transfer " title="Click to start the FTP transfer." onclick="ftpTransfer();"></div><!-- start FTPtransfer -->
+
+
+<!-- ************************************************* -->
+<div class="title">Fulltext Database Settings:</div>
+<table>
+	<tr>
+		<td title="The path who's content should be pushed into the fulltext database.">Source Path: </td><td title="The path who's content should be pushed into the fulltext database."><input class="textfield" type="text" id="settings_DB_sourcePathName" name="settings_DB_sourcePathName" value="" onkeyup="update_DB_jobticket(this.id,this.value,null);"></td>
+	</tr>
+</table>
+<table class="table_db_settings" border="0">
+	<tr>
+		<!-- first column title -->
+		<td colspan="2" class="table_title">Fulltext Database URL/Paths</td>
+		<td class="table_spacer">&nbsp;</td>
+		<!-- second column title -->
+		<td colspan="2" class="table_title">Database / Login</td>
+	</tr>
+	<tr>
+		<!-- first column -->
+		<td class="table_txt_right" title="The Webserver server's domain name.">Webserver Domain:</td><td class="table_txt" title="The Webserver server's domain name."><input class="textfield400" type="text" id="settings_DB_DOMAIN" name="settings_DB_DOMAIN" value="" onkeyup="update_DB_jobticket(this.id,this.value);"></td>
+		<td></td>
+		<!-- second column -->
+		<td class="table_txt_right" title="Database name">Database URL:</td><td class="table_txt" title="Database Domain name URL"><input class="textfield100" type="text" id="settings_DB_db_url" name="settings_DB_db_url" value="" onkeyup="update_DB_jobticket(this.id,this.value);"></td>
+	</tr>
+	<tr>
+		<!-- first column -->
+		<td class="table_txt_right" title="The path seen from Webserver's root to the epaper main folder">Data Root Path:</td><td class="table_txt" title="The path seen from Webserver's root to the epaper main folder"><input class="textfield400" type="text" id="settings_DB_root_datapath" name="settings_DB_root_datapath" value="" onkeyup="update_DB_jobticket(this.id,this.value);"></td>
+		<td></td>
+		<!-- second column -->
+		<td class="table_txt_right" title="Database name">Database Name:</td><td class="table_txt" title="Database Name"><input class="textfield100" type="text" id="settings_DB_db" name="settings_DB_db" value="" onkeyup="update_DB_jobticket(this.id,this.value);"></td>
+	</tr>
+	<tr>
+		<!-- first column -->
+		<td class="table_txt_right" title="Extract text from PDF">Extract PDF Text:</td><td class="table_txt" title="Extract text from PDF"><input class="" type="checkbox" id="settings_DB_PDFtextExtract" name="settings_DB_PDFtextExtract" value="" checked="false" onchange="update_DB_jobticket(this.id,this.checked);"></td>
+		<td></td>
+		<!-- second column -->
+		<td class="table_txt_right" title="Fulltext table name">Table Name:</td><td class="table_txt" title="Fulltext table name"><input class="textfield100" type="text" id="settings_DB_dbtbl" name="settings_DB_dbtbl" value="" onkeyup="update_DB_jobticket(this.id,this.value);"></td>
+	</tr>
+	<tr>
+		<!-- first column -->
+		<td class="table_txt_right" title="Minimum characters an article must contain to be pushed into the database">Minimum Characters:</td><td class="table_txt" title="Minimum characters an article must contain to be pushed into the database"><input class="textfield100" type="text" id="settings_DB_min_text_length_4db" name="settings_DB_min_text_length_4db" value="" onkeyup="update_DB_jobticket(this.id,this.value);"></td>
+		<td></td>
+		<!-- second column -->
+		<td class="table_txt_right" title="Database user name">DB User Name:</td><td class="table_txt" title="Database user name"><input class="textfield100" type="text" id="settings_DB_user" name="settings_DB_user" value="" onkeyup="update_DB_jobticket(this.id,this.value);"></td>
+	</tr>
+	<tr>
+		<!-- first column -->
+		<td class="table_txt_right" title="Override automatic retrieval of Object ID (first two-three letters of filename)">Object ID:</td><td class="table_txt" title="Override automatic retrieval of Object ID (first two-three letters of filename)"><input class="textfield100" type="text" id="settings_DB_object_id" name="settings_DB_object_id" value="" onkeyup="update_DB_jobticket(this.id,this.value);"></td>
+		<td></td>
+		<!-- second column -->
+		<td class="table_txt_right" title="Database user's password">DB Password:</td><td class="table_txt" title="Database user's password"><input class="textfield100" type="password" id="settings_DB_pw" name="settings_DB_pw" value="" onkeyup="update_DB_jobticket(this.id,this.value);"></td>
+	</tr>
+	<tr>
+		<!-- first column -->
+		<td class="table_txt_right" title=""></td><td class="table_txt" title=""></td>
+		<td></td>
+		<!-- second column -->
+		<td class="table_txt_right" title="Database Port (default = 3306)">DB Port:</td><td class="table_txt" title="Database Port (default = 3306)"><input class="textfield100" type="text" id="settings_DB_port" name="settings_DB_port" value="21" onkeyup="update_DB_jobticket(this.id,this.value);"></td>
+	</tr>
+</table>
+<br>
+<div class="btn_right"><input id="dbTransferBtn" class="btn200" type="button" disabled="true" value=" Fulltext DB Transfer " title="Click to start the Fulltext Database transfer." onclick="dbTransfer();"></div><!-- start db transfer -->
+
+
+<br>
+<input class="btn" type="button" value=" Save JobTickets " title="Click to save these settings - optionally as a new Publication settings group. If you enter a new name, it will appear in the 'Available Settings' drop down menu with the given name." onclick="save_jobtickets();"> as <input class="textfield250" type="text" id="new_settings_name" name="new_settings_name" onkeyup="check_groupname(this)" title="Enter a Name to create a new Publication settings group. Use plain ASCII charaters only - no special characters! If you enter a new name, it will appear in the 'Available Settings' drop down menu with the given name." value=""><br>	<!-- save all JobTickets on Server machine -->
+<br>
+<input class="btn_auto" type="button" value=" Show Transformer Log " title="Click to read the transformer Log file" onclick="post_command('plfh','_blank');">	<!-- show transformer log as HTML -->
+<input class="btn_auto" type="button" value=" Clear Transformer Log " title="Click to delete the transformer Log file" onclick="post_command('clf','work_iframe',true,5000);"><span id="clf_msg"></span>	<!-- trash transformer log file -->
+<br>
+<div class="txt_right">
+	<span id="toggledebug" onclick="toggledebug(event)">&nbsp;&nbsp;&copy;&nbsp;&nbsp;</span>2020 <a class="aiedv" href="http://www.AiEDV.ch" target="_blank">www.AiEDV.ch</a>
+</div>
+<div class="btn_auto">
+<input class="btn_auto" type="button" value=" Show more settings " title="Click to show more system settings" onclick="toggledebug(event)">	<!-- show all settingsL -->
+</div>
+
+<div class="hidden" id="manual_commands">
+<!-- ************************** System infos *********************** -->
+<div class="separator"></div>
+<div class="title">System Infos:</div>
+<div id="infos" class="info"></div>
+
+<!-- ************************** working stuff *********************** -->
+
+<div class="separator"></div>
+<div class="title">Submit a Command: <span class="txt">For Debugging Purposes ONLY!</span></div>
+<form id="omni_command" name="omni_command" class="txt" method="get" onsubmit="return manual_command();">
+	<textarea rows="5" class="textfield" id="cmd_fld" name="cmd_fld"></textarea>
+	<input class="btn" type="submit" value=" do it ">	<!-- send it -->
+</form>
+<div class="subtitle">Messages:</div>
+<iframe id="cmd_iframe" name="cmd_iframe" class="cmd_iframe"></iframe> <!-- command results -->
+
+</div>
+
+<!-- ************************** working stuff *********************** -->
+<div class="hidden_work" id="jtFiles">
+
+<iframe id="work_iframe" name="work_iframe" class="work_iframe"></iframe> <!-- command results -->
+
+<div class="minititle ">JobTickets Store:</div>
+<!-- Transfor Step 1: Transfor OmniPage XML single pages to slidebook XML pages -->
+<textarea id="override_jt" class="jt_store"></textarea>
+
+<!-- Transform Step 2: Merge converted XML single pages together to a book -->
+<textarea id="override_jt1" class="jt_store"></textarea>
+
+<!-- Transform Step 3: Convert XML to HTML Slide Book -->
+<textarea id="override_jt2" class="jt_store"></textarea>
+
+<!-- FTP transfer -->
+<textarea id="override_jt3" class="jt_store"></textarea>
+
+<!-- Fulltext DB transfer -->
+<textarea id="override_jt4" class="jt_store"></textarea>
+
+
+<!-- work form to submit data -->
+<form id="post_form" name="post_form" class="txt" method="post">
+	<textarea id="post_content" name="post_content"class="post_form_txt"></textarea>
+</form>
+</div>
+
+
+</div>
+
+</div><!-- end page_content -->
+
+<img class="oldpress" alt="Old Press" src="data:image/gif;base64,
+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
+s/o/AQYAYO5thAMHzwUAAAAASUVORK5CYII=
+">
+
+</body>
+</html>
