@@ -13,16 +13,16 @@ To include a JVM into the bundle place a JVM beside the build.xml file.\
 A Java Virtual Machine must be bundles as an OSX app. The folder structure of an OSX app is:
 
 **JavaVM.app/**\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- **Contents/**\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- Info.plist&nbsp;&nbsp;(MacOS only)\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- PkgInfo&nbsp;&nbsp;(MacOS only)\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- **MacOS/**&nbsp;&nbsp;(MacOS libjli.dylib)\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- **Home/** (JVM binaries)\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- **bin/**\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- **lib/**\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- **conf/** 
+>|\
+>|-- **Contents/**\
+>>|\
+>>|-- Info.plist&nbsp;&nbsp;(MacOS only)\
+>>|-- PkgInfo&nbsp;&nbsp;(MacOS only)\
+>>|-- **MacOS/**&nbsp;&nbsp;(MacOS libjli.dylib)\
+>>|-- **Home/** (JVM binaries)\
+>>>|-- **bin/**\
+>>>|-- **lib/**\
+>>>|-- **conf/** 
 
 
 If you want the Mac App then you may delete the file 'BatchXSLT.bat' (this is the starter for Windows).
