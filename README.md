@@ -28,8 +28,10 @@ To download 'ready to run' binaries for Windows and Mac OS X enter the folder 'b
 Or, as a programmer, click the button [ Clone or download ]
 
 #### BatchXSLT4InDesign Manuals
+To learn how to export InDsign documents:\
 Get the BatchXSLT for InDesign **User Manual**: https://manuals.aiedv.ch \
 or\
+To learn what elements and attributes are exported:\
 Get the BatchXSLT for InDesign **Technical Reference Manual**: https://manuals.aiedv.ch/?f=tr \
 
 More is comming soon - working...
