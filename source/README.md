@@ -8,11 +8,7 @@ To package the BatchXSLT.app choose 'Package as' -> All Artifacts. This will bun
 If no Java Virtual Machine app may be found, the bundle is built without JVM.\
 The bundled app is a Mac OS X app.
 
-Now copy the compiled 'BatchXSLT.app' into the folder 'BatchXSLT4InDesign-rawApp/BatchXSLT/' (download the app structure 'BatchXSLT4InDesign-rawApp' from this repo.
-
-If you want the Mac App then you may delete the file 'BatchXSLT.bat' (this is the starter for Windows).
-
-If you want the Windows app you may delete the file 'BatchXSLT.sh'. Start BatchXSLT with a double-click on 'BatchXSLT.bat'.
+Now copy the compiled 'BatchXSLT.app' into the folder 'BatchXSLT4InDesign-rawApp/BatchXSLT/' (download the app structure 'BatchXSLT4InDesign-rawApp' from this repository and and read the README.md.
 
 #### Have a bunbled Java Virtual Machine
 To include a JVM into the bundle place a JVM beside the build.xml file.\
