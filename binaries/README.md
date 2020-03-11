@@ -2,7 +2,7 @@
 # Downloads
 
 ## Minimalist Binary Windows Package
-The zip archive (BatchXSLT4InDesign_40-00-46_nj.zip) contains a to the minimum requirements stripped app.\
+The zip archive [BatchXSLT4InDesign_40-00-46_nj.zip](BatchXSLT4InDesign_40-00-46_nj.zip) contains a to the minimum requirements stripped app.\
 To run it, Java (>9) must be installed on the System.
 
 ## Full Windows Package
