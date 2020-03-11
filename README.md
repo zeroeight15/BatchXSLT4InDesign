@@ -1,6 +1,5 @@
 # BatchXSLT4InDesign
 ## An XML/HTML Transformer – even for InDesign documents
-**(This repository is not complete yet: More is comming soon - working...)**
 
 BatchXSLT is a powerful XML transformer. It transforms any XML file to what ever the transform stylesheet commands.\
 BatchXSLT can run in stand-alone mode or can be be remotely controlled.\
@@ -33,5 +32,3 @@ Get the BatchXSLT for InDesign **User Manual**: https://manuals.aiedv.ch \
 or\
 To learn what elements and attributes are exported:\
 Get the BatchXSLT for InDesign **Technical Reference Manual**: https://manuals.aiedv.ch/?f=tr \
-
-More is comming soon - working...
