@@ -1,6 +1,11 @@
 
 # Downloads
-## Windows Package
+
+## Minimalist Binary Windows Package
+The zip archive BatchXSLT4InDesign_40-00-46_nj.zip contains a to the minimum requirements stripped app.\
+To run it, Java (>9) must be installed on the System.
+
+## Full Windows Package
 #### a ZIP file:
 [hosted on our site aiedv.ch] (https://aiedv.ch/downloads/packages/2020/BatchXSLT4InDesign_40-00-46.zip)
 
@@ -13,7 +18,7 @@ The Transformer can manually be started with the script 'BatchXSLT.bat' containe
 InDesign will start it automatically after a document export.
 
 
-## Mac OS X Package
+## Full Mac OS X Package
 #### a signed/notarized disk image:
 [hosted on our site aiedv.ch] (https://aiedv.ch/downloads/packages/2020/BatchXSLT4InDesign_40-00-46.dmg)
 
